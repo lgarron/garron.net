@@ -134,7 +134,7 @@ hr {
   src: url("/files/fonts/InceptionBold.ttf") format("truetype");
 }
 
-h1.home {
+.home h1 {
   font-family: InceptionBold;
   font-size: 80px;
   font-weight: normal;
@@ -145,12 +145,12 @@ h1.home {
   color: #0C5093;
 }
 
-div.home {
+.home div {
   margin: 20px;
   text-align: center;
 }
 
-div.home > a {
+.home div > a {
   display: inline-block;
   display: -webkit-inline-flex;
   display: inline-flex;
@@ -180,7 +180,7 @@ div.home > a {
   transition: background-color 0.5s;
 }
 
-div.home > a:hover {
+.home div > a:hover {
   background-color: white;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   transition: background-color 0.15s;

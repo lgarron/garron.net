@@ -5,9 +5,11 @@ style: normal
 topic: home
 ---
 
-<h1 class="home">Lucas Garron</h1>
-
 <div class="home">
+
+<h1>Lucas Garron</h1>
+
+<div>
 <a style="background-image: url(files/img/home/github.png);" href="https://github.com/lgarron">GitHub</a>
 <a style="background-image: url(files/img/home/crypto.graphics.png);" href="https://crypto.graphics/">crypto.<br>graphics</a>
 <a style="background-image: url(files/img/home/cubing.png);" href="http://cube.garron.us/">Cubing</a>
@@ -20,4 +22,6 @@ topic: home
 <a style="background-image: url(files/img/home/flickr.png);" href="https://secure.flickr.com/photos/lgarron">flickr</a>
 <a style="background-image: url(files/img/home/youtube.png);" href="https://www.youtube.com/user/LucasGarron">YouTube</a>
 <a style="background-image: url(files/img/home/cube-heart.png);" href="http://archive.garron.us/pdf/2013/lucas_garron_resume_2013-10-02.pdf">R&eacute;sum&eacute;</a>
+</div>
+
 </div>
