@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #0C5093;
+}
+
+body {
+  font-family: Helvetica, Tahoma, sans-serif;
+}
+
+#header {
+  width: 100%;
+  justify-content: justify;
+  align-items: center;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  font-size: 24px;
+  min-height: 40px;
+  text-align: center;
+}
+
+#header > img {
+  height: 80px;
+  margin: 8px auto auto;
+}
+
+#header ul {
+  position: relative;
+  text-align: center;
+  display: block;
+  width:100%;
+  list-style:none;
+  margin: 0px 0px 12px;
+}
+
+#header li {
+  display: inline-block;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  list-style:none;
+  margin: 4px 6px;
+}
+/*
+#header li:first-child {
+  width: 20px;
+}
+*/
+#header a {
+  border-radius: 8px;
+  color: #90B8DF;
+  text-decoration: none;
+
+  transition: background-color 0.5s;
+}
+
+#header a.current {
+  color: white;
+}
+
+#header a:hover {
+  color: white;
+  /*text-decoration: underline;*/
+  /*background: #000;*/
+  text-shadow: 4px 2px 10px rgba(0, 0, 0, 1);
+  transition: background-color 0.15s;
+}
+/*
+#header a img {
+  width: 40px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  vertical-align: middle;
+  transition: 0.25s;
+  opacity: 0;
+}
+
+#header a:hover img {
+  width: 40px;
+  opacity: 1;
+}
+*/
+#content-outer {
+  width: 100%;
+  height: 100%;
+}
+
+#content-inner {
+  background: #90B8DF;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+
+body.normal #content-inner {
+  padding: 20px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+body.wide #content-inner {
+  max-width: 100%;
+  padding-top: 0px;
+}
+
+h1 {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+hr {
+  width: 70%;
+  background: black;
+  height: 1px;
+  border: none;
+
+  margin: auto;
+
+  /* Slimming/Fading Effect */
+  background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009ab8df', endColorstr='#009ab8df',GradientType=1 ); /* IE6-9 */
+}
+
+@font-face {
+  font-family: InceptionBold;
+  src: url("/files/fonts/InceptionBold.ttf") format("truetype");
+}
+
+h1.home {
+  font-family: InceptionBold;
+  font-size: 80px;
+  font-weight: normal;
+  text-decoration: none;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 30px 0 40px;
+  color: #0C5093;
+}
+
+div.home {
+  margin: 20px;
+  text-align: center;
+}
+
+div.home > a {
+  display: inline-block;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  vertical-align: middle;
+
+  height: 48px;
+  width: 256px;
+  margin: 10px 20px;
+  padding: 8px 12px;
+
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  /*border-radius: 4px;*/
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+
+  background-color: rgba(255, 255, 255, 0.5);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 100px auto;
+
+  color: black;
+  text-align: left;
+  text-decoration: none;
+  align-items: center;
+  font-size: 24px;
+  line-height: 1em;
+
+  transition: background-color 0.5s;
+}
+
+div.home > a:hover {
+  background-color: white;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.15s;
+}
