@@ -14,10 +14,10 @@
 </head>
 <body class="{{ page.contentStyle }}">
 <div id="header">
-	<img src="/files/img/cube-heart.png" alt="Lucas Garron"/>
+	<img src="/files/img/home/{{page.topic}}.png" alt="Lucas Garron"/>
 	<ul>
 		<li><a href="/" {%if page.topic == "home" %}class="current"{% endif %}>Home</a></li>
-		<li><a href="http://cube.garron.us/" {%if page.topic == "cubing" %}class="current"{% endif %}>Cubing</a></li>
+		<li><a href="/cubing" {%if page.topic == "cubing" %}class="current"{% endif %}>Cubing</a></li>
 		<li><a href="http://music.garron.us/" {%if page.topic == "music" %}class="current"{% endif %}>Music</a></li>
 	</ul>
 </div>
