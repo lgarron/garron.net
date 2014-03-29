@@ -1,8 +1,17 @@
 ---
 layout: default
 title: Lucas Garron | garron.net
-style: normal
+contentStyle: normal
 topic: home
+style: |
+    .pgp-address {
+      word-spacing: -0.2em;
+      text-decoration: none;
+      color: #0C5093
+    }
+    .pgp-address:hover {
+      text-decoration: underline;
+    }
 ---
 
 <div class="home">
@@ -23,5 +32,10 @@ topic: home
 <a style="background-image: url(files/img/home/youtube.png);" href="https://www.youtube.com/user/LucasGarron">YouTube</a>
 <a style="background-image: url(files/img/home/cube-heart.png);" href="http://archive.garron.us/pdf/2013/lucas_garron_resume_2013-10-02.pdf">R&eacute;sum&eacute;</a>
 </div>
+
+<center style="font-family: monospace; line-height: 200%;">
+  <i class="fa fa-lock"> </i> <a href="lucas/lgarron-3880CAE7.asc" class="pgp-address" title="lgarron's PGP key">7B61 7BC1 5F73 8A2A 3D90 13B1 E3EE C254 3880 CAE7</a><br>
+  <i class="fa fa-btc"> </i> 1CY8sNeyh19gs6d7peakyE79DGDHJzYBzJ
+</center>
 
 </div>
