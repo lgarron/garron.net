@@ -49,7 +49,7 @@ style: |
   style="background-image: url(files/img/home/crypto.graphics.png);" href="https://crypto.graphics/">crypto.<br>graphics</a><a
   style="background-image: url(files/img/home/cubing.png);" href="/cubing">Cubing</a><a
   style="background-image: url(files/img/home/alg.cubing.net.png);" href="http://alg.cubing.net/">alg.cubing.net</a><a
-  style="background-image: url(files/img/home/music.png);" href="http://music.garron.us/">My Songs</a><a
+  style="background-image: url(files/img/home/music.png);" href="/music">My Songs</a><a
   style="background-image: url(files/img/home/hacks.png);" href="http://music.garron.us/hacks/">Music<br>Hacks</a><a
   style="background-image: url(files/img/home/inception-bold.png);" href="http://code.garron.us/fonts/inception/">Inception Bold</a><a
   style="background-image: url(files/img/home/speed-bld.png);" href="http://cube.garron.us/BLD/speed/">Speed BLD</a><a
