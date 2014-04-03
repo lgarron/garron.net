@@ -62,7 +62,8 @@ var bg = [
   "2560px/IMG_6271.jpg",
   "2560px/IMG_9818_19_20_21_22_23_24_tonemapped_fused.jpg",
   "2560px/Sky after FNW..jpg",
-  "2560px/old_union_all_in_focus.jpg"
+  "2560px/old_union_all_in_focus.jpg",
+  "2560px/IMG_0947_51_tonemapped.jpg"
 ];
 var idx = Math.floor(Math.random()*bg.length);
 document.body.style.backgroundImage = "url('" + bg[idx] + "')";
