@@ -56,7 +56,7 @@ style: |
   style="background-image: url(files/img/home/wca.png);" href="https://www.worldcubeassociation.org/regulations/">WCA<br>Regulations</a><a
   style="background-image: url(files/img/home/flickr.png);" href="https://secure.flickr.com/photos/lgarron">flickr</a><a
   style="background-image: url(files/img/home/youtube.png);" href="https://www.youtube.com/user/LucasGarron">YouTube</a><a
-  style="background-image: url(files/img/home/cube-heart.png);" href="http://archive.garron.us/pdf/2013/lucas_garron_resume_2013-10-02.pdf">R&eacute;sum&eacute;</a>
+  style="background-image: url(files/img/home/cube-heart.png);" href="lucas/lgarron-resume.pdf">R&eacute;sum&eacute;</a>
 </div>
 <br>
 </div>
