@@ -36,6 +36,7 @@ style: |
 I've been involved with a few cubing projects over the years.
 
 
+- [Solution PDF](http://cube.garron.us/solution.pdf): Simple cube solution I teach (more like a cheat sheet than a standalone tutorial).
 - [MGLS](http://cube.garron.us/MGLS/): My spedsolving method.
 - [lucasparity](http://alg.cubing.net/?alg=r_U2_x_r_U2_r_U2%0Ar-_U2_l_U2_r-_U2%0Ar_U2_r-_U2_r-&puzzle=4x4x4&type=alg&view=playback&title=lucasparity): My 4x4x4 OLL parity.
 - [WRC](https://www.worldcubeassociation.org/contact) (WCA Regulations Committee): Co-founder and co-chair since 2012.
