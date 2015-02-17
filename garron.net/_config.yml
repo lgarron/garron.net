@@ -1,0 +1,6 @@
+name: Lucas Garron
+markdown: kramdown
+highlighter: pygments
+description: Lucas Garron's Website
+baseurl: https://garron.net
+author: Lucas Garron
