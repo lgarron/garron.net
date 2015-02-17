@@ -95,7 +95,8 @@ body {
 
 
 body.normal #content-inner {
-  padding: 20px 0px;}
+  padding: 40px 60px;
+}
 
 body.wide #content-inner {
   max-width: 100%;
@@ -105,6 +106,10 @@ body.wide #content-inner {
 h1 {
   text-align: center;
   font-variant: small-caps;
+}
+
+h2 {
+  margin-bottom: 0.5em;
 }
 
 hr {
