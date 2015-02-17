@@ -1,0 +1,28 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text" xml:lang="en">{{ site.name }}</title>
+    <link type="application/atom+xml" href="{{ site.baseurl }}/feed.xml" rel="self"/>
+    <link href="{{ site.baseurl }}/"/>
+  <updated>{{ site.time | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <id>{{ site.baseurl }}/</id>
+  <author>
+    <name>{{ site.author }}</name>
+  </author>
+  {% for post in site.pages limit:100 %} {% if post.feeds contains "main" %}
+  <entry>
+    <title>{{ post.title | xml_escape }}</title>
+    <link rel="alternate" type="text/html" href="{{ site.baseurl }}{{ post.url }}" />
+    <published>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</published>
+    {% if post.updated %}
+      <updated>{{ post.updated | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    {% else %}
+      <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    {% endif %}
+    <id>{{ site.baseurl }}{{ post.url }}</id>
+    <content type="html"><![CDATA[ {{ post.content }} ]]></content>
+  </entry>
+  {% endif %} {% endfor %}
+
+</feed>
