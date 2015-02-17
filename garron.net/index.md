@@ -51,6 +51,7 @@ style: |
   style="background-image: url(files/img/home/crypto.graphics.png);" href="https://crypto.graphics/">crypto.<br>graphics</a><a
   style="background-image: url(files/img/home/cubing.png);" href="/cubing">Cubing</a><a
   style="background-image: url(files/img/home/alg.cubing.net.png);" href="http://alg.cubing.net/">alg.<br>cubing.net</a><a
+  style="background-image: url(files/img/home/pet-the-kitties.jpg);" href="/app/cat">Pet the<br>Kitties</a><a
   style="background-image: url(files/img/home/music.png);" href="/music">My Songs</a><a
   style="background-image: url(files/img/home/hacks.png);" href="http://music.garron.us/hacks/">Music<br>Hacks</a><a
   style="background-image: url(files/img/home/inception-bold.png);" href="http://code.garron.us/fonts/inception/">Inception<br>Bold</a><a
@@ -58,7 +59,8 @@ style: |
   style="background-image: url(files/img/home/wca.png);" href="https://www.worldcubeassociation.org/regulations/">WCA<br>Regulations</a><a
   style="background-image: url(files/img/home/flickr.png);" href="https://secure.flickr.com/photos/lgarron">flickr</a><a
   style="background-image: url(files/img/home/youtube.png);" href="https://www.youtube.com/user/LucasGarron">YouTube</a><a
-  style="background-image: url(files/img/home/cube-heart.png);" href="lucas/lgarron-resume.pdf">R&eacute;sum&eacute;</a>
+  style="background-image: url(files/img/home/chrome.png);" href="https://www.chromium.org/Home/chromium-security/enamel">Chrome<br>Security UX</a><!--a
+  style="background-image: url(files/img/home/cube-heart.png);" href="lucas/lgarron-resume.pdf">R&eacute;sum&eacute;</a-->
 </div>
 <br>
 </div>
