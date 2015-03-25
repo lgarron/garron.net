@@ -1,0 +1,77 @@
+==================================================================
+https://keybase.io/lgarron
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://garron.net
+  * I am lgarron (https://keybase.io/lgarron) on keybase.
+  * I have a public key with fingerprint 7B61 7BC1 5F73 8A2A 3D90  13B1 E3EE C254 3880 CAE7
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "7b617bc15f738a2a3d9013b1e3eec2543880cae7",
+            "host": "keybase.io",
+            "key_id": "e3eec2543880cae7",
+            "kid": "0101c03c6545cb37243a49246c8cb11de0de10861eb4d52d6fc558d6497e56cd87b80a",
+            "uid": "8eb262d7a0e3caa6a552e1d00c5d9700",
+            "username": "lgarron"
+        },
+        "revoke": {
+            "sig_ids": [
+                "635f6f5144370a06b090e5c35d99fa4871d346911ac81618da7f7e28a29d3c5d0f"
+            ]
+        },
+        "service": {
+            "hostname": "garron.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1424771585,
+    "expire_in": 157680000,
+    "prev": "311eade13b5eb98477f9121ff53a954b9e8b3f7dac604bb7a15dcf01848b214b",
+    "seqno": 27,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owFtkn9QFGUcxg/imMRQJMRIMttqzCDcd3/f0UwKxBAVKKD94OJ4d/fdYwXujrvj
+p2IURmOAkyYpQ0BSYIZ4SsDkBTiIAUGSzCDJDJkkSigYk6PIiNV7ZP+1/+zsd5/v
+53n22fdj34c0nh5Xbp5JEor6Jz0GpkRN0nSs1w5CtMj5hH4HkY4Wb4pqNiGb1aaa
+HYSe4EUO8KIEWIWnBUhBWtaRgBYBohGSKJahBYGUIOKJUCLNYndvYIwI7ShMteAZ
+fjCqMp7+jz598QUJSCCRtMSxDCuJNE8xNGR0FMNJgiQCICNSRoAUOIBERmYpmVMk
+lhVkjtHxiOUkWeBFgYQYl72IE5BIcZTMQxLREoQcZFkKAZkkJVbW8STpFtqRzQwz
+EVZnmKDNZjEThaGEDeVY0pG7ALtqwpnthD6Z4GhW4RQWMAzNk5DkRFJHIlaiMUun
+QEbggUwznA4AKAmAA4IMeYVHFC5KJ9PYkVSIdzAbG+ao0iLcXdID83+9w8zIgUNZ
+bRaHRbJk4Hmaw2G1692ZHPlWtzAXicYHCKOommX8g/BGDrLZVZxdD7BScqhuJmAo
+hucBK7ChBMqzqjZkVN0KlucEEl9uH5SDkTQAyABxs7TIIlEn4C1FByigKCwNdSwj
+6pAg0govQ4kjGVHkIWBlSSGBwAgiBRiRcH9VltlC6CkeB4UmDMXFmaEj24aIQp89
+nsFeGg9PjbfW033KND5L/P47eh+Sy/+ONg0/c+7PAH1uw+/R401HxQs15y/PRTaV
+PTY14f/0oHd/476z2hl0NMTwinrYlT2c8uXEsUP1qfMBxRdLQGpF64rneyLaPvr8
++A9BvzaHDKe0TYwcCf5gd2NlVvXAttzZu1+tG577bn3pfFw/u7J6arf2jut6U+xM
+wKcjyu1435J7zf3+VqLcGV7vbIa90afA9u3Ry69sCewQi73MxiFbaUHWSVj3MDw3
+lXjXMrZh1yNypXar07zeZ6B+BpVmZl0yfL2Ln65LWXJeNkRVFLUvlK1N8k5q2N+z
+5ghYV3VNzbgTU2wqXNq6cboxpiXF95tHw6jyZcnfXwt3wsKfM9sT4/vKJw/OHXjq
+yT1g4rZha22xKX7nfa3UXT27IDhbDwxU5t/7KcLZhSqGWszjPt1Dw85U/Yku5b3Y
+veF9rtkXUvd7vj9YUHC4fBUX1Xl9cnVa7RetoUS7fHqnP9rcFfD4j8ENfNnowFiV
+5bM619XOHpe2O2/10N5Ol0dJeO2GU8dmxnpXDDbeeDMivD0MRVJvv57w8qZVr3a8
+lLxt08Ka/k+iOpJei+ntk/x897XcWJnjaHsx7q93+yL97huCTGvjF24Zf/lj4exb
+NQlbTgQOnq6pXho/HhVo0Xx75ubJ5dqR0Krg+QuJQceNIXm/jV4s2nzrjecuLdt4
+8IlUcx5/OS5h6Nl0H6f/9Oihq/8A
+=JGw8
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lgarron
+
+==================================================================
