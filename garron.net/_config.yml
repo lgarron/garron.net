@@ -4,3 +4,6 @@ highlighter: pygments
 description: Lucas Garron's Website
 baseurl: https://garron.net
 author: Lucas Garron
+include:
+- .htaccess
+- .well-known
