@@ -31,6 +31,10 @@ style: |
     .compact {
       word-spacing: -0.2em;
     }
+    body.normal #content-inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
 ---
 
 <div class="home">
