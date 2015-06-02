@@ -146,7 +146,7 @@ head: |
   <div style="background-position: 50% 60%; background-image: url('2560px-40/cube-perspective.jpg');">
     <a class="caption" href="2560px/cube-perspective.jpg">Cube Perspective (2014).</a></div>
   <div style="background-image: url('2560px-40/gloriette.jpg')">
-    <a class="caption" href="2560px/gloriette.jpg">Glieriette at Schönbrunn in München, Germany (2014).</a></div>
+    <a class="caption" href="2560px/gloriette.jpg">Gloriette at Schönbrunn in München, Germany (2014).</a></div>
   <div style="background-image: url('2560px-40/marktkirche.jpg')">
     <a class="caption" href="2560px/marktkirche.jpg">Marktkirche in Wiesbaden, Germany (2014).</a></div>
   <div style="background-position: 50% 25%; background-image: url('2560px-40/mitzi.jpg');">
