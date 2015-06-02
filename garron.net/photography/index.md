@@ -57,7 +57,7 @@ head: |
         z-index: 0;
         width: 100%;
         height: 100%;
-        background-position: center center;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 0;
@@ -113,6 +113,8 @@ head: |
     <a class="caption" href="2560px/IMG_2348.jpg">St. Bonifacius at the Mainzer Dom (2013).</a></div>
   <div style="background-image: url('2560px-40/IMG_6271.jpg')">
     <a class="caption" href="2560px/IMG_6271.jpg">Peggy the Angry Bird (2012).</a></div>
+  <div style="background-image: url('2560px-40/focus.jpg')">
+    <a class="caption" href="2560px/focus.jpg">Focus (2012).</a></div>
   <div style="background-image: url('2560px-40/IMG_9818_19_20_21_22_23_24_tonemapped_fused.jpg')">
     <a class="caption" href="2560px/IMG_9818_19_20_21_22_23_24_tonemapped_fused.jpg">Boat on the Rhine by Mainz, Germany (2013).</a></div>
   <div style="background-image: url('2560px-40/Berkeley Hills.jpg')">
@@ -133,6 +135,28 @@ head: |
     <a class="caption" href="2560px/IMG_7606.jpg">Meow (2014).</a></div>
   <div style="background-image: url('2560px-40/DSC04024.jpg')">
     <a class="caption" href="2560px/DSC04024.jpg">Garden of the Gwacheon National Science Museum near Seoul, Korea (2014).</a></div>
+  <div style="background-image: url('2560px-40/bay-bridge.jpg')">
+    <a class="caption" href="2560px/bay-bridge.jpg">Bay Bridge in the morning, San Francisco (2015).</a></div>
+  <div style="background-image: url('2560px-40/chabot.jpg')">
+    <a class="caption" href="2560px/chabot.jpg">Observatory of the Chabot Space and Science Center, Oakland (2015).</a></div>
+  <div style="background-image: url('2560px-40/creases.jpg')">
+    <a class="caption" href="2560px/creases.jpg">Creases in a sheet (2014).</a></div>
+  <div style="background-image: url('2560px-40/crypto-machine.jpg')">
+    <a class="caption" href="2560px/crypto-machine.jpg">WWII-era cryptography machine at MoMath, New York. (2014).</a></div>
+  <div style="background-position: 50% 60%; background-image: url('2560px-40/cube-perspective.jpg');">
+    <a class="caption" href="2560px/cube-perspective.jpg">Cube Perspective (2014).</a></div>
+  <div style="background-image: url('2560px-40/gloriette.jpg')">
+    <a class="caption" href="2560px/gloriette.jpg">Glieriette at Schönbrunn in München, Germany (2014).</a></div>
+  <div style="background-image: url('2560px-40/marktkirche.jpg')">
+    <a class="caption" href="2560px/marktkirche.jpg">Marktkirche in Wiesbaden, Germany (2014).</a></div>
+  <div style="background-position: 50% 25%; background-image: url('2560px-40/mitzi.jpg');">
+    <a class="caption" href="2560px/mitzi.jpg">Mitzi (2015).</a></div>
+  <div style="background-position: bottom; background-image: url('2560px-40/paper-store.jpg');">
+    <a class="caption" href="2560px/paper-store.jpg">Paper store in Tokyo, Japan (2014).</a></div>
+  <div style="background-image: url('2560px-40/staatskanzlei.jpg')">
+    <a class="caption" href="2560px/staatskanzlei.jpg">Staatskanzlei in München, Germany (2014).</a></div>
+  <div style="background-image: url('2560px-40/magnify.jpg')">
+    <a class="caption" href="2560px/magnify.jpg">Magnify (2015).</a></div>
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
