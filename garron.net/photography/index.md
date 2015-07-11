@@ -25,6 +25,7 @@ head: |
         // Start on a random slide.
         var idx = Math.floor(Math.random() * $(".carousel .slick-slide").length);
         $(".carousel").slickGoTo(idx);
+        $(".slick-list.draggable").get(0).focus(); // Set DOM focus on the element so that we can use the keyboard immediately.
       });
     </script>
     <style>

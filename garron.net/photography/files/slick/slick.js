@@ -1231,9 +1231,10 @@
         var targetSlide, animSlide, slideLeft, unevenOffset, targetLeft = null,
             _ = this;
 
-        if (_.animating === true) {
-            return false;
-        }
+        // Removed by lgarron, 2015-07-11.
+        // if (_.animating === true) {
+        //     return false;
+        // }
 
         targetSlide = index;
         targetLeft = _.getLeft(targetSlide);
