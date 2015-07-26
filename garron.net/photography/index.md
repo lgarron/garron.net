@@ -158,6 +158,10 @@ head: |
     <a class="caption" href="2560px/staatskanzlei.jpg">Staatskanzlei in München, Germany (2014).</a></div>
   <div style="background-position: 50% 50%; background-image: url('2560px-40/magnify.jpg')">
     <a class="caption" href="2560px/magnify.jpg">Magnify (2015).</a></div>
+  <div style="background-position: 62% 47%; background-image: url('2560px-40/orchid.jpg')">
+    <a class="caption" href="2560px/orchid.jpg">Orchid (2013).</a></div>
+  <div style="background-position: 50% 50%; background-image: url('2560px-40/nymphenburg.jpg')">
+    <a class="caption" href="2560px/nymphenburg.jpg">Schloss Nymphenburg in München, Germany (2015).</a></div>
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
