@@ -10,7 +10,7 @@ build:
 
 .PHONY: serve
 serve:
-	jekyll serve ${JEKYLL_ARGS} --watch
+	jekyll serve --baseurl="" ${JEKYLL_ARGS} --watch
 
 .PHONY: deploy
 deploy: build
