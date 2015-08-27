@@ -65,6 +65,7 @@ style: |
   style="background-image: url(files/img/home/folderify.png);" href="https://github.com/lgarron/folderify">folderify</a><a
   style="background-image: url(files/img/home/youtube.png);" href="https://www.youtube.com/user/LucasGarron">YouTube</a><a
   style="background-image: url(files/img/home/chrome.png);" href="https://www.chromium.org/Home/chromium-security/enamel">Chrome<br>Security UX</a><a
+  style="background-image: url(files/img/home/chromium.svg);" href="https://codereview.chromium.org/user/lgarron">Chrome<br>Code</a><a
   style="background-image: url(files/img/home/badssl.png);" href="https://badssl.com/">badssl.com</a><!--a
   style="background-image: url(files/img/home/cube-heart.png);" href="lucas/lgarron-resume.pdf">R&eacute;sum&eacute;</a-->
 </div>
