@@ -16,18 +16,15 @@ style: |
       list-style-type: none;
     }
     #content-inner a {
-      background: rgba(255, 255, 255, 0.3);
-      padding: 0.2em 0.3em;
-      margin: 0.1em;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-    #content-inner a:visited {
-      color: blue;
+      color: #00509E;
+      text-decoration: underline;
     }
     #content-inner a:hover {
       color: white;
       text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+    h2 {
+      font-size: 1.25em;
     }
 ---
 
