@@ -51,7 +51,7 @@ Here are my personal tempo guidelines:
 <div class="responsive">
 
 <center>
-  <a href="social-dance-tempos.png"><img class="social-dance-tempos" src="social-dance-tempos.svg" alt="Social Dance Tempos"></a>
+  <a href="social-dance-tempos.pdf"><img class="social-dance-tempos" src="social-dance-tempos.svg" alt="Social Dance Tempos"></a>
   <br>
 </center>
 
@@ -95,7 +95,7 @@ Here are my personal tempo guidelines:
 
 </div>
 
-Chart image download: <a href="social-dance-tempos.png">png</a>, <a href="social-dance-tempos.svg">svg</a>
+Chart image download: <a href="social-dance-tempos.png">png</a>, <a href="social-dance-tempos.svg">svg</a>, <a href="social-dance-tempos.pdf">pdf</a>
 <br><br>
 
 ### Sweet Range
