@@ -44,7 +44,7 @@ style: |
 <br>
 <center>
 When DJing social dance music, it's important to play songs with a good tempo.<br>
-Here are my personal tempo guidelines:
+Here are my personal tempo guidelines (tempos are beats per minute):
 </center>
 <br>
 
