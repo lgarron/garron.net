@@ -58,6 +58,7 @@ style: |
   style="background-image: url(files/img/home/pet-the-kitties.jpg);" href="/app/cat">Pet the<br>Kitties</a><a
   style="background-image: url(files/img/home/music.png);" href="/music">My Songs</a><a
   style="background-image: url(files/img/home/hacks.png);" href="http://music.garron.us/hacks/">Music<br>Hacks</a><a
+  style="background-image: url(files/img/home/dance-tempos.svg);" href="/dance/tempos/">Dance<br>Tempos</a><a
   style="background-image: url(files/img/home/inception-bold.png);" href="http://code.garron.us/fonts/inception/">Inception<br>Bold</a><a
   style="background-image: url(files/img/home/speed-bld.png);" href="http://cube.garron.us/BLD/speed/">Speed<br>BLD</a><a
   style="background-image: url(files/img/home/wca.png);" href="https://www.worldcubeassociation.org/regulations/">WCA<br>Regulations</a><a
