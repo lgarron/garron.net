@@ -37,7 +37,7 @@ I've been involved with a few cubing projects over the years.
 ## [Solution PDF](http://cube.garron.us/solution.pdf)
 Simple cube solution I teach (more like a cheat sheet than a standalone tutorial).
 
-## [MGLS](http://cube.garron.us/MGLS/)
+## [MGLS](./MGLS/)
 My spedsolving method.
 
 ## [lucasparity](http://alg.cubing.net/?alg=r_U2_x_r_U2_r_U2%0Ar-_U2_l_U2_r-_U2%0Ar_U2_r-_U2_r-&puzzle=4x4x4&type=alg&view=playback&title=lucasparity)
