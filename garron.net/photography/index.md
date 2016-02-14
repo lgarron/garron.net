@@ -162,6 +162,8 @@ head: |
     <a class="caption" href="high-res/orchid.jpg">Orchid (2013).</a></div>
   <div style="background-position: 50% 50%; background-image: url('2560px-40/nymphenburg.jpg')">
     <a class="caption" href="high-res/nymphenburg.jpg">Schloss Nymphenburg in München, Germany (2015).</a></div>
+  <div style="background-position: 53% 50%; background-image: url('2560px-40/sydney-opera-house.jpg')">
+    <a class="caption" href="high-res/sydney-opera-house.jpg">Sydney Opera House (2016).</a></div>
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
