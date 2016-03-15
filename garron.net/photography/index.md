@@ -32,6 +32,9 @@ head: |
       .slick-slider {
         margin-bottom: 0;
       }
+      .slick-list.dragging {
+        cursor: ew-resize;
+      }
       #header , #header * {
         z-index: 10;
       }
