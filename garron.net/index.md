@@ -54,7 +54,7 @@ style: |
 <a style="background-image: url(files/img/home/github.svg);" href="https://github.com/lgarron">GitHub</a><a
   style="background-image: url(files/img/home/crypto.graphics.png);" href="https://crypto.graphics/">crypto.<br>graphics</a><a
   style="background-image: url(files/img/home/cubing.png);" href="/cubing">Cubing</a><a
-  style="background-image: url(files/img/home/alg.cubing.net.png);" href="http://alg.cubing.net/">alg.<br>cubing.net</a><a
+  style="background-image: url(files/img/home/alg.cubing.net.png);" href="https://alg.cubing.net/">alg.<br>cubing.net</a><a
   style="background-image: url(files/img/home/pet-the-kitties.jpg);" href="/app/cat">Pet the<br>Kitties</a><a
   style="background-image: url(files/img/home/music.png);" href="/music">My Songs</a><a
   style="background-image: url(files/img/home/hacks.png);" href="http://music.garron.us/hacks/">Music<br>Hacks</a><a
