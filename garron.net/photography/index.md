@@ -68,7 +68,6 @@ head: |
       }
       .carousel a.caption {
         display: block;
-        height: 30px;
         width: 100%;
         position: absolute;
         bottom: 0px;
@@ -78,7 +77,8 @@ head: |
         text-shadow: 0px 0px 2px rgb(0, 0, 0);
         font-size: 24px;
         text-overflow: ellipsis;
-        padding: 30px; 0px
+        padding: 20px;
+        box-sizing: border-box;
         text-decoration: none;
         transition: all 250ms;
       }
