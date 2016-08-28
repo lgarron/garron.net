@@ -160,7 +160,7 @@ head: |
   <div style="background-position: 50% 50%; background-image: url('2560px-40/staatskanzlei.jpg')">
     <a class="caption" href="high-res/staatskanzlei.jpg">Staatskanzlei in München, Germany (2014).</a></div>
   <div style="background-position: 50% 50%; background-image: url('2560px-40/magnify.jpg')">
-    <a class="caption" href="high-res/magnify.jpg">Magnify (2015).</a></div>
+    <a class="caption" href="high-res/magnify.jpg">The Alchemist (2015).</a></div>
   <div style="background-position: 62% 47%; background-image: url('2560px-40/orchid.jpg')">
     <a class="caption" href="high-res/orchid.jpg">Orchid (2013).</a></div>
   <div style="background-position: 50% 50%; background-image: url('2560px-40/nymphenburg.jpg')">
