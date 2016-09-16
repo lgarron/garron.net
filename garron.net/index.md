@@ -35,15 +35,23 @@ style: |
       padding-left: 0;
       padding-right: 0;
     }
+    ul.info {
+      list-style: none;
+    }
+    span.emoji {
+      font-size: 1.5em;
+      vertical-align: -5%;
+      width: 1em;
+    }
 ---
 
 <div class="home">
 
 <div class="ids">
-<ul class="info fa-ul">
-  <li><i class="fa fa-user fa-fw"> </i> <span style="font-size: 120%; font-family: sans-serif">Lucas Garron</span></li>
-  <li><i class="fa fa-envelope fa-fw"> </i> <a href="mailto:lucas@garron.net" class="link">lucas@garron.net</a></li>
-  <li><i class="fa fa-lock fa-fw"> </i> <a href="lucas/lgarron-3880CAE7.asc" class="link compact" title="lgarron's PGP key"><!--7B61 7BC1 5F73 8A2A 3D90 13B1--> E3EE C254 3880 CAE7</a></li>
+<ul class="info">
+  <li><span class="emoji person">&#x1F464;</span> <span style="font-size: 120%; font-family: sans-serif">Lucas Garron</span></li>
+  <li><span class="emoji envelope">&#x2709;&#xFE0F;</span> <a href="mailto:lucas@garron.net" class="link">lucas@garron.net</a></li>
+  <li><span class="emoji key">&#x1F511;</span> <a href="lucas/lgarron-3880CAE7.asc" class="link compact" title="lgarron's PGP key"><!--7B61 7BC1 5F73 8A2A 3D90 13B1--> E3EE C254 3880 CAE7</a></li>
 </ul>
 </div>
 
