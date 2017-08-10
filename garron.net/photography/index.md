@@ -167,6 +167,8 @@ head: |
     <a class="caption" href="high-res/nymphenburg.jpg">Schloss Nymphenburg in München, Germany (2014).</a></div>
   <div style="background-position: 53% 50%; background-image: url('2560px-40/sydney-opera-house.jpg')">
     <a class="caption" href="high-res/sydney-opera-house.jpg">Sydney Opera House (2016).</a></div>
+  <div style="background-position: 30% 20%; background-image: url('2560px-40/prague-castle.jpg')">
+    <a class="caption" href="high-res/prague-castle.jpg">Prague Castle at night, viewed from Charles Bridge (2017).</a></div>
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
