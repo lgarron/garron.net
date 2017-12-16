@@ -60,7 +60,7 @@ Here are my personal tempo guidelines (tempos are beats per minute):
     <tr><td>Dance</td><td>Sweet Range</td><td>Extended Range</td></tr>
   </thead>
   <tbody>
-    <tr><td>Cross-Step Waltz</td><td>114 – 122</td><td>105 – 125</td></tr>
+    <tr><td>Cross-Step Waltz</td><td>114 – 122</td><td>105 – 130</td></tr>
     <tr><td>Rotary Waltz</td><td>140 – 160</td><td>135 – 170</td></tr>
     <tr><td>Fast Waltz</td><td>170 – 200</td><td>160 – 210</td></tr>
   </tbody>
