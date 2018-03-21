@@ -1,11 +1,7 @@
 # Dreamhost doesn't allow any way to configure connection security except .htaccess. :-(
 
 # If on HTTPS, sent the HSTS header.
-Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header always unset Strict-Transport-Security env=!HTTPS
-
-# HSDSTS ;-)
-Header always set Super-Duper-Strict-Transport-Security "max-age=86400; excludeSuperDomains"
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" env=HTTPS
 
 # Redirect to HTTPS first.
 RewriteEngine on
@@ -17,5 +13,3 @@ RewriteEngine On
 RewriteCond %{HTTPS} on
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^(.*)$ https://garron.net%{REQUEST_URI} [R=302,L]
-
-# Header always set stat-header "HTTPS: %{HTTPS}s, NO_HTTPS: %{NO_HTTPS}s"
