@@ -59,6 +59,7 @@ style: |
 
 <div class="links">
 <a style="background-image: url(files/img/home/github.svg);" href="https://github.com/lgarron">GitHub</a><a
+  style="background-image: url(files/img/home/clipboard-polyfill-logo.svg);" href="https://github.com/lgarron/clipboard-polyfill">clipboard-<br>polyfill</a><a
   style="background-image: url(files/img/home/crypto.graphics.png);" href="https://crypto.graphics/">crypto.<br>graphics</a><a
   style="background-image: url(files/img/home/cubing.png);" href="/cubing">Cubing</a><a
   style="background-image: url(files/img/home/alg.cubing.net.png);" href="https://alg.cubing.net/">alg.<br>cubing.net</a><a
