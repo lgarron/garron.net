@@ -62,10 +62,7 @@ body {
 }
 
 #header a:hover {
-  color: white;
-  /*text-decoration: underline;*/
-  /*background: #000;*/
-  text-shadow: 4px 2px 10px rgba(0, 0, 0, 1);
+  text-decoration: underline;
 }
 /*
 #header a img {
