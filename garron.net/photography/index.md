@@ -169,13 +169,10 @@ head: |
     <a class="caption" href="high-res/sydney-opera-house.jpg">Sydney Opera House (2016).</a></div>
   <div style="background-position: 30% 20%; background-image: url('2560px-40/prague-castle.jpg')">
     <a class="caption" href="high-res/prague-castle.jpg">Prague Castle at night, viewed from Charles Bridge (2017).</a></div>
-<<<<<<< Updated upstream
-  <div style="background-position: 40% 10%; background-image: url('2560px-40/paris-seine-eiffel-tower.jpg')">
+  <div style="background-position: 40% 35%; background-image: url('2560px-40/paris-seine-eiffel-tower.jpg')">
     <a class="caption" href="high-res/paris-seine-eiffel-tower.jpg">Eiffel Tower and flooded Seine (2018).</a></div>
-=======
   <div style="background-position: 58% 55%; background-image: url('2560px-40/IMG_9949.jpg')">
     <a class="caption" href="high-res/IMG_9949.jpg">San Francisco and the Bay Bridge (2021).</a></div>
->>>>>>> Stashed changes
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
