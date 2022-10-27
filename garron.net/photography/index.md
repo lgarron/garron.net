@@ -4,90 +4,90 @@ title: Photography | garron.net
 contentStyle: full
 topic: photography
 head: |
-    <meta name="viewport" content="minimal-ui" />
-    <link rel="stylesheet" type="text/css" href="files/slick/slick.css"/>
-    <script type="text/javascript" src="/files/js/jquery.js"> </script>
-    <script>
-      /* TODO:
-         - Don't autoplay after clicking/swiping
-         - buttons within full-screen div
-         - fade during autoplay, slide for swipe/arrow key
-      */
-      $(document).ready(function(){
+  <meta name="viewport" content="minimal-ui" />
+  <link rel="stylesheet" type="text/css" href="files/slick/slick.css"/>
+  <script type="text/javascript" src="/files/js/jquery.js"> </script>
+  <script>
+    /* TODO:
+       - Don't autoplay after clicking/swiping
+       - buttons within full-screen div
+       - fade during autoplay, slide for swipe/arrow key
+    */
+    $(document).ready(function(){
 
-        $('.carousel').slick({
-          arrows: false,
-          autoplay: true,
-          autoplaySpeed: 10000
-          // fade: true
-        });
-
-        // Start on a random slide.
-        var idx = Math.floor(Math.random() * $(".carousel .slick-slide").length);
-        $(".carousel").slickGoTo(idx);
-        $(".slick-list.draggable").get(0).focus(); // Set DOM focus on the element so that we can use the keyboard immediately.
+      $('.carousel').slick({
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 10000
+        // fade: true
       });
-    </script>
-    <style>
-      .slick-slider {
-        margin-bottom: 0;
-      }
-      .slick-list.dragging {
-        cursor: ew-resize;
-      }
-      #header , #header * {
-        z-index: 10;
-      }
-      #header img {
-        display: none;
-      }
-      #header ul {
-        background: rgba(0, 0, 0, 0.5);
-      }
-      #header li {
-        margin-top: 12px;
-        margin-bottom: 12px;
-      }
-      .carousel {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-      }
-      .carousel div {
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: 0;
-      }
-      .carousel a.caption {
-        display: block;
-        width: 100%;
-        position: absolute;
-        bottom: 0px;
-        background: rgba(0, 0, 0, 0.6);
-        color: rgba(255, 255, 255, 0.75);
-        text-align: center;
-        text-shadow: 0px 0px 2px rgb(0, 0, 0);
-        font-size: 24px;
-        text-overflow: ellipsis;
-        padding: 20px;
-        box-sizing: border-box;
-        text-decoration: none;
-        transition: all 250ms;
-      }
-      .carousel a.caption:hover {
-        text-decoration: underline;
-        background: black;
-        color: rgba(255, 255, 255, 1);
-      }
-    </style>
+
+      // Start on a random slide.
+      var idx = Math.floor(Math.random() * $(".carousel .slick-slide").length);
+      $(".carousel").slickGoTo(idx);
+      $(".slick-list.draggable").get(0).focus(); // Set DOM focus on the element so that we can use the keyboard immediately.
+    });
+  </script>
+  <style>
+    .slick-slider {
+      margin-bottom: 0;
+    }
+    .slick-list.dragging {
+      cursor: ew-resize;
+    }
+    #header , #header * {
+      z-index: 10;
+    }
+    #header img {
+      display: none;
+    }
+    #header ul {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    #header li {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+    .carousel {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .carousel div {
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 0;
+    }
+    .carousel a.caption {
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+      background: rgba(0, 0, 0, 0.6);
+      color: rgba(255, 255, 255, 0.75);
+      text-align: center;
+      text-shadow: 0px 0px 2px rgb(0, 0, 0);
+      font-size: 24px;
+      text-overflow: ellipsis;
+      padding: 20px;
+      box-sizing: border-box;
+      text-decoration: none;
+      transition: all 250ms;
+    }
+    .carousel a.caption:hover {
+      text-decoration: underline;
+      background: black;
+      color: rgba(255, 255, 255, 1);
+    }
+  </style>
 ---
 
 <div class="carousel" tabindex="0">
@@ -169,8 +169,13 @@ head: |
     <a class="caption" href="high-res/sydney-opera-house.jpg">Sydney Opera House (2016).</a></div>
   <div style="background-position: 30% 20%; background-image: url('2560px-40/prague-castle.jpg')">
     <a class="caption" href="high-res/prague-castle.jpg">Prague Castle at night, viewed from Charles Bridge (2017).</a></div>
+<<<<<<< Updated upstream
   <div style="background-position: 40% 10%; background-image: url('2560px-40/paris-seine-eiffel-tower.jpg')">
     <a class="caption" href="high-res/paris-seine-eiffel-tower.jpg">Eiffel Tower and flooded Seine (2018).</a></div>
+=======
+  <div style="background-position: 58% 55%; background-image: url('2560px-40/IMG_9949.jpg')">
+    <a class="caption" href="high-res/IMG_9949.jpg">San Francisco and the Bay Bridge (2021).</a></div>
+>>>>>>> Stashed changes
 </div>
 
 <script type="text/javascript" src="files/slick/slick.js"> </script>
