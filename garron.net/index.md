@@ -3,6 +3,8 @@ layout: default
 title: Lucas Garron | garron.net
 contentStyle: normal
 topic: home
+head: |
+    <a rel="me" href="https://mastodon.social/@lgarron">Mastodon</a>
 style: |
     .link {
       word-spacing: -0.2em;
