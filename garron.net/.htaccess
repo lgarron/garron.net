@@ -17,6 +17,8 @@ RewriteRule ^(.*)$ https://garron.net%{REQUEST_URI} [R=302,L]
 ExpiresActive off
 Header always set Cache-Control "max-age=300; must-revalidate"
 
+RedirectMatch 307 ^/dudeney/?$ https://mathworld.wolfram.com/HaberdashersProblem.html
+
 # Compression
 # Per https://kinsta.com/knowledgebase/enable-gzip-compression/
 <IfModule mod_deflate.c>
