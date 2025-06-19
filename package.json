@@ -1,0 +1,10 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@cubing/dev-config": "^0.3.6",
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^26.1.0",
+    "printable-shell-command": "^1.0.0"
+  }
+}

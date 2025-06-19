@@ -1,0 +1,9 @@
+<header>
+  <img src="/files/img/home/home.png" alt="Lucas Garron" />
+  <ul>
+    <li><a href="/" data-topic="home">Home</a></li>
+    <li><a href="/cubing/" data-topic="cubing">Cubing</a></li>
+    <li><a href="/music/" data-topic="music">Music</a></li>
+    <li><a href="/photography/" data-topic="photography">Photo</a></li>
+  </ul>
+</header>
