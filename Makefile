@@ -1,7 +1,10 @@
+.PHONY: build
+build:
+	bun run ./script/build.ts
+
 .PHONY: dev
 dev: setup
-	bun run ./script/build.ts
-	fswatch --event=Updated --one-per-batch ./script/build.ts ./src | xargs -n1 -I{} bun run ./script/build.ts
+	bun run --watch ./script/dev.ts
 
 .PHONY: lint
 lint: setup
