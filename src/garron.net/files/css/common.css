@@ -116,7 +116,7 @@ main {
 body main,
 div.default-content-width {
   max-width: calc(min(100vw - 4em, 1024px));
-  place-self: center;
+  margin: auto;
 }
 
 .center-text {

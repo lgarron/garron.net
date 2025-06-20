@@ -8,7 +8,7 @@
 
   svg {
     height: 40em;
-    max-width: max(50vw, 90vh);
+    width: auto;
   }
 
   table {
