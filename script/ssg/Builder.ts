@@ -183,7 +183,7 @@ export class Builder {
     const file = new BuildFile(this, rootRelativePath);
     const domString = (await this.renderPage(file, options)).serialize();
     await writeFile(file.outputPath(), domString, "utf-8");
-    console.log(`[Built file] ${file.sourcePath()} → ${file.outputPath()}`);
+    console.log(`[Built file] ${file.rootRelativePath}`);
     await new PrintableShellCommand("bun", [
       ["x", "biome"],
       "format",
@@ -198,10 +198,14 @@ export class Builder {
       watcher?: FSWatcher;
     },
   ): Promise<void> {
+    const start = performance.now();
+
     const buildIndex = ++this.buildIndex;
     console.log("<!---------------->");
     console.log(`<build data-build-id=\"${buildIndex}\">`);
-    console.log(`Building files:\n- ${files.join("\n- ")}`);
+    if (this.options.debugOutput) {
+      console.log(`Building files:\n- ${files.join("\n- ")}`);
+    }
     await rm(this.options.outputDir, { recursive: true, force: true });
     await mkdir(this.options.outputDir, { recursive: true });
     // TODO: exclude files from `files` so we can run in parallel with building.
@@ -210,12 +214,11 @@ export class Builder {
     await this.parallelDependingOnOptions(
       files.map((file) => this.buildFile(file, options)),
     );
+    console.log(`Ran in ${performance.now() - start}ms`);
     console.log(`</build> <!-- data-build-id=${buildIndex} -->`);
   }
 
   async build(options?: { watcher?: FSWatcher }): Promise<void> {
-    const start = performance.now();
-
     // Recompile everything for now, because we don't have a dependency graph.
     const files: string[] = [];
     for await (const file of glob("**/*.html", { cwd: this.options.srcRoot })) {
@@ -230,8 +233,7 @@ export class Builder {
     //   cwd: this.options.outputDir,
     // })) {
     //   await rm(path, { recursive: true });
-    // }
-    console.log(`Ran in ${performance.now() - start}ms`);
+    //
   }
 
   async watch(options?: { signal?: AbortSignal }): Promise<void> {
