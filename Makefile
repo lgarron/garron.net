@@ -7,11 +7,15 @@ dev: setup
 	bun run --watch ./script/dev.ts
 
 .PHONY: test
-test: lint test-Builder
+test: lint test-Builder test-tsc
 
 .PHONY: test-Builder
 test-Builder:
 	bun test
+
+.PHONY: test-tsc
+test-tsc:
+	bun x tsc --noEmit --project .
 
 .PHONY: lint
 lint: setup
