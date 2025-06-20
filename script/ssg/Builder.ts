@@ -173,14 +173,14 @@ export class Builder {
   }
 
   // biome-ignore lint/suspicious/noExplicitAny: Required to express the type.
-  async parallelDependingOnOptions<T extends Array<Promise<any>>>(
-    promises: T,
+  async parallelDependingOnOptions<T extends Array<() => Promise<any>>>(
+    promiseFns: T,
   ): Promise<void> {
     if (this.options.parallel ?? true) {
-      await Promise.all(promises);
+      await Promise.all(promiseFns.map((promiseFn) => promiseFn()));
     } else {
-      for (const promise of promises) {
-        await promise;
+      for (const promiseFn of promiseFns) {
+        await promiseFn();
       }
     }
   }
@@ -204,8 +204,8 @@ export class Builder {
       /* no-op */
     }
     await this.parallelDependingOnOptions([
-      this.templateReplace(file, dom, dom.window.document.head, options),
-      this.templateReplace(file, dom, dom.window.document.body, options),
+      () => this.templateReplace(file, dom, dom.window.document.head, options),
+      () => this.templateReplace(file, dom, dom.window.document.body, options),
     ]);
     return dom;
   }
@@ -243,7 +243,7 @@ export class Builder {
     // TODO: exclude fragments?
     await cp(this.options.srcRoot, this.options.outputDir, { recursive: true });
     await this.parallelDependingOnOptions(
-      files.map((file) => this.buildFile(file, options)),
+      files.map((file) => () => this.buildFile(file, options)),
     );
     console.log(`Ran in ${performance.now() - start}ms`);
     console.log(`</build> <!-- data-build-id=${buildIndex} -->`);
