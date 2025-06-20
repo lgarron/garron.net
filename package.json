@@ -12,6 +12,6 @@
     "serve-handler": "^6.1.6"
   },
   "@cubing/deploy": {
-    "https://garron.net/test/": {}
+    "https://garron.net/": {}
   }
 }
