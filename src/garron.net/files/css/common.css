@@ -6,24 +6,12 @@
   --theme-color-light: #90b8df;
   --theme-color-dark: #0c5093;
 
-  --primary-background-color: light-dark(
-    var(--theme-color-light),
-    var(--theme-color-dark)
-  );
-  --primary-accent-color: light-dark(
-    var(--theme-color-dark),
-    var(--theme-color-light)
-  );
+  --primary-background-color: light-dark(var(--theme-color-light), var(--theme-color-dark));
+  --primary-accent-color: light-dark(var(--theme-color-dark), var(--theme-color-light));
   --primary-strong-color: light-dark(black, white);
 
-  --secondary-background-color: light-dark(
-    var(--theme-color-dark),
-    var(--theme-color-light)
-  );
-  --secondary-accent-color: light-dark(
-    var(--theme-color-light),
-    var(--theme-color-dark)
-  );
+  --secondary-background-color: light-dark(var(--theme-color-dark), var(--theme-color-light));
+  --secondary-accent-color: light-dark(var(--theme-color-light), var(--theme-color-dark));
   --secondary-strong-color: light-dark(white, black);
 }
 
@@ -155,10 +143,8 @@ hr {
   background: none;
   margin: auto;
 
-  border-top: 1px solid
-    color-mix(in oklab, var(--primary-strong-color) 20%, transparent);
-  border-bottom: 1px solid
-    color-mix(in oklab, var(--primary-strong-color) 4%, transparent);
+  border-top: 1px solid color-mix(in oklab, var(--primary-strong-color) 20%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--primary-strong-color) 4%, transparent);
   border-left: none;
   border-right: none;
 }

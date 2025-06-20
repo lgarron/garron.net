@@ -10,5 +10,11 @@
       "!src/garron.net/files/js/jquery.js",
       "!src/garron.net/files/js/jquery.min.js"
     ]
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "lineWidth": 100
+    }
   }
 }
