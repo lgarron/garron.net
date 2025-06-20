@@ -105,12 +105,12 @@ body[data-topic="music"] header li[data-topic="music"].hidden-by-default {
   display: inherit;
 }
 
-#content {
+main {
   width: 100%;
   justify-self: center;
 }
 
-body #content,
+body main,
 div.default-content-width {
   max-width: calc(min(100vw - 80px, 1024px));
   place-self: center;
@@ -120,16 +120,16 @@ div.default-content-width {
   text-align: center;
 }
 
-body[data-width="medium"] #content {
+body[data-width="medium"] main {
   max-width: calc(min(100vw - 80px, 640px));
 }
 
-body[data-width="full"] #content {
+body[data-width="full"] main {
   max-width: 100%;
   padding-top: 0px;
 }
 
-body[data-width="auto"] #content {
+body[data-width="auto"] main {
   width: auto;
 }
 
