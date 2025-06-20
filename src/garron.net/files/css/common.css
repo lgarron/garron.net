@@ -115,7 +115,7 @@ main {
 
 body main,
 div.default-content-width {
-  max-width: calc(min(100vw - 4em, 1024px));
+  max-width: calc(min(100vw - 2em, 1024px));
   margin: auto;
 }
 
