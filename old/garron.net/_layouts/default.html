@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <link rel="apple-touch-icon" href="/files/img/apple-touch-icon.png"/>
+  <link rel="apple-touch-icon" href="/files/img/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="garron.net">
   <meta name="viewport" content="width = 640">
   <title>{{ page.title }}</title>
   <meta name="theme-color" content="#0C5093">
-  <link rel="stylesheet" href="/files/css/main.css">
-{% if page.style %}
+  <link rel="stylesheet" href="/files/css/common.css">
+  {% if page.style %}
   <style type="text/css">
-    {{ page.style }}
+    {
+        {
+        page.style
+      }
+    }
   </style>
-{% endif %}
-{% if page.head %}
-{{ page.head }}
-{% endif %}
+  {% endif %}
+  {% if page.head %}
+  {{ page.head }}
+  {% endif %}
 </head>
+
 <body class="{{ page.contentStyle }}">
-<div id="header">
-	<img src="/files/img/home/{{page.topic}}.png" alt="Lucas Garron"/>
-	<ul>
-		<li><a href="/" {%if page.topic == "home" %}class="current"{% endif %}>Home</a></li>
-		<li><a href="/cubing/" {%if page.topic == "cubing" %}class="current"{% endif %}>Cubing</a></li>
-    <li><a href="/music/" {%if page.topic == "music" %}class="current"{% endif %}>Music</a></li>
-    <li><a href="/photography/" {%if page.topic == "photography" %}class="current"{% endif %}>Photo{%if page.topic == "photography" %}graphy{% endif %}</a></li>
-	</ul>
-</div>
+  <div id="header">
+    <img src="/files/img/home/{{page.topic}}.png" alt="Lucas Garron" />
+    <ul>
+      <li><a href="/" {%if page.topic=="home" %}class="current" {% endif %}>Home</a></li>
+      <li><a href="/cubing/" {%if page.topic=="cubing" %}class="current" {% endif %}>Cubing</a></li>
+      <li><a href="/music/" {%if page.topic=="music" %}class="current" {% endif %}>Music</a></li>
+      <li><a href="/photography/" {%if page.topic=="photography" %}class="current" {% endif %}>Photo{%if page.topic ==
+          "photography" %}graphy{% endif %}</a></li>
+    </ul>
+  </div>
 
-<div id="content-outer">
-<div id="content-inner">
+  <div id="content-outer">
+    <div id="content-inner">
 
-{{ content }}
+      {{ content }}
 
-</div>
-</div>
+    </div>
+  </div>
 
-<div class="footer">
-</div>
+  <div class="footer">
+  </div>
 </body>
+
 </html>
