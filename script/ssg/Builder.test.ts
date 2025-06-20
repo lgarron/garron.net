@@ -25,17 +25,14 @@ async function renderFile(
   rootRelativePath: string,
 ): Promise<string> {
   const file = new BuildFile(builder, rootRelativePath);
-  const dom = await builder[Test.renderPage](file);
-  return dom.serialize();
+  return builder[Test.renderPageString](file);
 }
 
 test("basic", async () => {
   const builder = testBuilder({
     "index.html": "<h1>Hello world!</h1>",
   });
-  expect(await renderFile(builder, "index.html")).toEqual(
-    `<html><head></head><body><h1>Hello world!</h1></body></html>`,
-  );
+  expect(await renderFile(builder, "index.html")).toMatchSnapshot();
 });
 
 test("Full page", async () => {
@@ -53,18 +50,7 @@ test("Full page", async () => {
   </body>
 </html>`,
   });
-  expect(await renderFile(builder, "page.html")).toEqual(
-    `<!DOCTYPE html><html><head>
-    <meta charset=\"utf-8\">
-    <title></title>
-    <link rel=\"stylesheet\" href=\"./style.css\">
-    <script src=\"./script.js\" type=\"module\"></script>
-  </head>
-  <body>
-    <h1>Hello there!</h1>
-  
-</body></html>`,
-  );
+  expect(await renderFile(builder, "page.html")).toMatchSnapshot();
 });
 
 test("Include", async () => {
@@ -76,13 +62,7 @@ test("Include", async () => {
   <a href="./bar/">Bar?</a>
 </header>`,
   });
-  expect(await renderFile(builder, "main.html")).toEqual(
-    `<html><head><header>
-  <a href=\"./foo/\">Foo!</a>
-  <a href=\"./bar/\">Bar?</a>
-</header>
-</head><body><h1>Hi</h1></body></html>`,
-  );
+  expect(await renderFile(builder, "main.html")).toMatchSnapshot();
 });
 
 test("Markdown", async () => {
@@ -91,10 +71,7 @@ test("Markdown", async () => {
 ## This is is a [Markdown](https://commonmark.org/) header.
 </pre>`,
   });
-  expect(await renderFile(builder, "index.html")).toEqual(
-    `<html><head></head><body><h2>This is is a <a href=\"https://commonmark.org/\">Markdown</a> header.</h2>
-</body></html>`,
-  );
+  expect(await renderFile(builder, "index.html")).toMatchSnapshot();
 });
 
 test("Nested Markdown", async () => {
@@ -108,12 +85,5 @@ test("Nested Markdown", async () => {
 </div>
 </pre>`,
   });
-  expect(await renderFile(builder, "index.html")).toEqual(
-    `<html><head></head><body><h2>This is is a <a href=\"https://commonmark.org/\">Markdown</a> header.</h2>
-<div>
-  <p>This is <em>Markdown nested inside HTML nested inside Markdown nested inside HTML</em>! 🤯</p>
-
-</div>
-</body></html>`,
-  );
+  expect(await renderFile(builder, "index.html")).toMatchSnapshot();
 });

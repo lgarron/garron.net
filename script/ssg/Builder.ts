@@ -11,13 +11,14 @@ import { dirname, relative, resolve } from "node:path";
 import { cwd, cwd as processCwd } from "node:process";
 import { type FSWatcher, watch } from "chokidar";
 import { HtmlRenderer, Parser } from "commonmark";
+import { html_beautify } from "js-beautify";
 import { JSDOM } from "jsdom";
 import { default as handler } from "serve-handler";
 
 const PORT = 1337;
 
 export const Test = {
-  renderPage: Symbol("renderPage"),
+  renderPageString: Symbol("renderPageString"),
 } as const;
 
 export class BuildFile {
@@ -191,7 +192,7 @@ export class Builder {
     return fragment;
   }
 
-  async renderPage(
+  private async renderPageDOM(
     file: BuildFile,
     options?: { watcher?: FSWatcher },
   ): Promise<JSDOM> {
@@ -209,8 +210,15 @@ export class Builder {
     ]);
     return dom;
   }
-  [Test.renderPage](...args: Parameters<Builder["renderPage"]>) {
-    return this.renderPage(...args);
+
+  private async renderPageString(
+    file: BuildFile,
+    options?: { watcher?: FSWatcher },
+  ): Promise<string> {
+    return html_beautify((await this.renderPageDOM(file, options)).serialize());
+  }
+  [Test.renderPageString](...args: Parameters<Builder["renderPageString"]>) {
+    return this.renderPageString(...args);
   }
 
   private async buildFile(
@@ -218,7 +226,7 @@ export class Builder {
     options?: { watcher?: FSWatcher },
   ) {
     const file = new BuildFile(this, rootRelativePath);
-    const domString = (await this.renderPage(file, options)).serialize();
+    const domString = await this.renderPageString(file, options);
     await writeFile(file.outputPath(), domString, "utf-8");
     console.log(`[Built file] ${file.rootRelativePath}`);
   }
