@@ -28,8 +28,6 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -39,6 +37,7 @@ body {
 }
 
 body {
+  margin: 0;
   font-family: Ubuntu, Helvetica, Tahoma, sans-serif;
   background: var(--primary-background-color);
   color: var(--primary-strong-color);
@@ -47,7 +46,11 @@ body {
 }
 
 body a {
-  color: var(--primary-strong-color);
+  color: var(--primary-accent-color);
+}
+
+body a:visited {
+  color: color-mix(in oklab, var(--primary-accent-color) 60%, mediumorchid);
 }
 
 header {
@@ -74,7 +77,7 @@ header ul {
   gap: 12px;
 }
 
-header a {
+header :is(a, a:visited) {
   color: currentColor;
 }
 
@@ -82,18 +85,55 @@ header a:not(:hover) {
   text-decoration: none;
 }
 
+header ul {
+  margin: 0;
+}
+
+body[data-topic="home"] header li[data-topic="home"],
+body[data-topic="dance"] header li[data-topic="dance"],
+body[data-topic="cubing"] header li[data-topic="cubing"],
+body[data-topic="music"] header li[data-topic="music"],
+body[data-topic="photography"] header li[data-topic="photography"] {
+  color: var(--secondary-strong-color);
+}
+
+header .hidden-by-default {
+  display: none;
+}
+
+body[data-topic="music"] header li[data-topic="music"].hidden-by-default {
+  display: inherit;
+}
+
 #content {
   width: 100%;
   justify-self: center;
+  display: grid;
+  justify-content: center;
 }
 
-body #content {
+body #content,
+div.default-content-width {
   max-width: calc(min(100vw - 80px, 1024px));
+  place-self: center;
+}
+
+.center-text {
+  text-align: center;
 }
 
 body[data-width="full"] #content {
   max-width: 100%;
   padding-top: 0px;
+}
+
+h1 {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+h2 {
+  margin-bottom: 0.5em;
 }
 
 hr {
@@ -108,11 +148,4 @@ hr {
     color-mix(in oklab, var(--primary-strong-color) 4%, transparent);
   border-left: none;
   border-right: none;
-}
-
-body[data-topic="home"] header a[data-topic="home"],
-body[data-topic="cubing"] header a[data-topic="cubing"],
-body[data-topic="music"] header a[data-topic="music"],
-body[data-topic="photography"] header a[data-topic="photography"] {
-  color: var(--secondary-strong-color);
 }

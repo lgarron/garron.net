@@ -1,3 +1,3 @@
-import { builder } from "./Builder";
+import { builder } from "./common-builder";
 
-await builder.buildAllHTML();
+await builder.build();

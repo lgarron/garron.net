@@ -3,9 +3,12 @@ import { createServer } from "node:http";
 import { dirname, relative, resolve } from "node:path";
 import { cwd, cwd as processCwd } from "node:process";
 import { type FSWatcher, watch } from "chokidar";
+import { HtmlRenderer, Parser } from "commonmark";
 import { JSDOM } from "jsdom";
 import { PrintableShellCommand } from "printable-shell-command";
 import { default as handler } from "serve-handler";
+
+const PORT = 1337;
 
 class BuildFile {
   constructor(
@@ -80,10 +83,25 @@ function rateLimited<T extends Array<any>>(
   };
 }
 
-class Builder {
+export class Builder {
   buildIndex: number = 0;
 
   constructor(public options: BuilderOptions) {}
+
+  async markdownReplace(
+    elementOrFragment: HTMLElement | DocumentFragment,
+  ): Promise<void> {
+    for (const templateIncludeElem of elementOrFragment.querySelectorAll(
+      'pre[data-template="markdown"]',
+    )) {
+      const textContent = templateIncludeElem.textContent ?? "";
+      const htmlText = this.commonmark.writer.render(
+        this.commonmark.parser.parse(textContent),
+      );
+      // TODO: recursively replace Markdown? Do we need to parse in a different order to enable this?
+      templateIncludeElem.replaceWith(JSDOM.fragment(htmlText));
+    }
+  }
 
   async templateReplace(
     file: BuildFile,
@@ -149,7 +167,8 @@ class Builder {
     options?: { watcher?: FSWatcher },
   ): Promise<JSDOM> {
     const dom = await file.sourceAsDOM();
-    // TODO: do we want to enforce serialized processing
+    // Process Markdown before templating, to allow interleaving.
+    this.markdownReplace(dom.window.document.body);
     await this.parallelDependingOnOptions([
       this.templateReplace(file, dom, dom.window.document.head, options),
       this.templateReplace(file, dom, dom.window.document.body, options),
@@ -183,7 +202,7 @@ class Builder {
     console.log("<!---------------->");
     console.log(`<build data-build-id=\"${buildIndex}\">`);
     console.log(`Building files:\n- ${files.join("\n- ")}`);
-    await rm(this.options.outputDir, { recursive: true });
+    await rm(this.options.outputDir, { recursive: true, force: true });
     await mkdir(this.options.outputDir, { recursive: true });
     // TODO: exclude files from `files` so we can run in parallel with building.
     // TODO: exclude fragments?
@@ -194,7 +213,7 @@ class Builder {
     console.log(`</build> <!-- data-build-id=${buildIndex} -->`);
   }
 
-  async buildAllHTML(options?: { watcher?: FSWatcher }): Promise<void> {
+  async build(options?: { watcher?: FSWatcher }): Promise<void> {
     const start = performance.now();
 
     // Recompile everything for now, because we don't have a dependency graph.
@@ -203,12 +222,21 @@ class Builder {
       files.push(file);
     }
     await this.buildFiles(files, options);
+
+    // TODO: filter these during the file copy
+    // TODO: `bun` has a bug, so this doesn't work at all. https://github.com/oven-sh/bun/issues/20507
+    // https://github.com/oven-sh/bun/issues/20507
+    // for await (const path of glob("**/*.ssg", {
+    //   cwd: this.options.outputDir,
+    // })) {
+    //   await rm(path, { recursive: true });
+    // }
     console.log(`Ran in ${performance.now() - start}ms`);
   }
 
   async watch(options?: { signal?: AbortSignal }): Promise<void> {
     console.info("Watching…");
-    const fn = rateLimited(() => this.buildAllHTML({ watcher }), 1000);
+    const fn = rateLimited(() => this.build({ watcher }), 1000);
 
     const cwd = resolve(processCwd(), this.options.srcRoot);
     const watcher = watch(".", {
@@ -224,15 +252,22 @@ class Builder {
     });
   }
 
-  async serve(options?: { signal?: AbortSignal }): Promise<void> {
+  async serve(options?: {
+    signal?: AbortSignal;
+    port?: number;
+  }): Promise<void> {
     const server = createServer((request, response) => {
-      // You pass two more arguments for config and middleware
-      // More details here: https://github.com/vercel/serve-handler#options
-      return handler(request, response, { public: "./dist/web/garron.net/" });
+      return handler(request, response, { public: this.options.outputDir });
     });
 
-    server.listen(3000, () => {
-      console.log("Running at http://localhost:3000");
+    // TODO: interleave this more cleanly with the build.
+    await mkdir(this.options.outputDir, { recursive: true });
+
+    const port = options?.port ?? PORT;
+    server.listen(port, () => {
+      const url = new URL("http://localhost/");
+      url.port = `${port}`;
+      console.log(`Running at ${url}`);
     });
 
     this.watch(options);
@@ -241,10 +276,13 @@ class Builder {
     });
     // TODO: ensure that we don't hang the main process after the `AbortSignal` is processed.
   }
-}
 
-export const builder = new Builder({
-  srcRoot: "./src/garron.net",
-  outputDir: "./dist/web/garron.net",
-  debugOutput: true,
-});
+  #commonmarkCached: { parser: Parser; writer: HtmlRenderer } | undefined;
+  get commonmark(): { parser: Parser; writer: HtmlRenderer } {
+    // biome-ignore lint/suspicious/noAssignInExpressions: Caching pattern
+    return (this.#commonmarkCached ??= {
+      parser: new Parser(),
+      writer: new HtmlRenderer(),
+    });
+  }
+}

@@ -1,0 +1,23 @@
+<style>
+  .main {
+    text-align: center;
+  }
+
+  #variation {
+    font-size: 180%;
+    width: 80%;
+    margin: 2em auto;
+    padding: 1em;
+    background: var(--secondary-background-color);
+    color: var(--secondary-strong-color);
+    border-radius: 0.25em;
+  }
+
+  button#again {
+    margin: auto;
+    padding: 1em;
+    width: 50%;
+    height: 3em;
+    font-size: 100%;
+  }
+</style>

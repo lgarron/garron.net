@@ -66,6 +66,7 @@
     display: inline-block;
     display: inline-flex;
     vertical-align: middle;
+    box-sizing: content-box;
 
     height: 80px;
     width: 180px;

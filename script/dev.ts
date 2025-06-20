@@ -1,4 +1,4 @@
-import { builder } from "./Builder";
+import { builder } from "./common-builder";
 
 const abortController = new AbortController();
 const { signal } = abortController;

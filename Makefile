@@ -1,5 +1,5 @@
 .PHONY: build
-build:
+build: clean
 	bun run ./script/build.ts
 
 .PHONY: dev
@@ -17,6 +17,10 @@ format: setup
 .PHONY: setup
 setup:
 	bun install --frozen-lockfile
+
+.PHOHY: deploy
+deploy: build
+	bun x @cubing/deploy
 
 .PHONY: clean
 clean:
