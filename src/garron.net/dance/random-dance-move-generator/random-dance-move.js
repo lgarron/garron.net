@@ -1,13 +1,10 @@
-"use strict";
-
-var $ = document.querySelector.bind(document);
-
 var grammar = {
   "@variation": [
-    "@modification @move @positionkind @danceapplication @timing @extra"
+    "@modification @move @positionkind @danceapplication @timing @extra",
   ],
   "@modification": [
-    "", "",
+    "",
+    "",
     "double",
     "reverse",
     "role-reversed",
@@ -32,7 +29,7 @@ var grammar = {
     "over-the-elbows", // Suggested by Nick
     "magic", // Suggested by Nick
     "easy-going", // Suggested by Nick
-    "blind" // Suggested by Nick
+    "blind", // Suggested by Nick
   ],
   "@move": [
     "@pivotthing",
@@ -42,13 +39,32 @@ var grammar = {
     "@handmove",
     "@step",
     "@tangothing",
-    "@latinthing"
+    "@latinthing",
   ],
   "@positionkind": [
-    "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "from @position",
     "in @position",
-    "into @position"
+    "into @position",
   ],
   "@position": [
     "wedding cake handhold",
@@ -64,39 +80,73 @@ var grammar = {
     "airplane position", // Suggested by Nick
     "open position", // Suggested by Nick
     "Yale position", // Suggested by Nick
-    "linked elbows" // Suggested by Nick
+    "linked elbows", // Suggested by Nick
   ],
   "@danceapplication": [
-    "", "", "", "", "", "", "", "", "", "", "", "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "during @dance",
     "while transitioning into @dance",
     "as a line dance", // Suggested by Brett.
     "with a clap", // Suggested by Nick
-    "with a stomp" // Suggested by Nick
+    "with a stomp", // Suggested by Nick
   ],
   "@timing": [
-    "", "", "", "", "", "", "", "", "", "", "", "", "",
-    "in @timesignature" // Suggested by Brett.
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "in @timesignature", // Suggested by Brett.
   ],
-  "@timesignature": [
-    "4/4 time",
-    "3/4 time",
-    "5/4 time",
-    "7/4 time"
-  ],
+  "@timesignature": ["4/4 time", "3/4 time", "5/4 time", "7/4 time"],
   "@extra": [
-    "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "followed by @variation",
-    "which resolves to @variation"
+    "which resolves to @variation",
   ],
-  "@turn": [
-    "@turnvariation @turnkind @turnmove"
-  ],
+  "@turn": ["@turnvariation @turnkind @turnmove"],
   "@turnvariation": [
-    "", "", "", "",
+    "",
+    "",
+    "",
+    "",
     "cross-body",
     "tuck", // Suggested by Nick
-    "tandem" // Suggested by Nick
+    "tandem", // Suggested by Nick
   ],
   "@turnkind": [
     "free",
@@ -106,19 +156,10 @@ var grammar = {
     "outside",
     "illusion",
     "walk-around",
-    "dishrag" // Suggested by Nick
+    "dishrag", // Suggested by Nick
   ],
-  "@turnmove": [
-    "spin",
-    "turn",
-    "wrap",
-    "he-goes-she-goes"
-  ],
-  "@basic": [
-    "swingout",
-    "Charleston kicks",
-    "turning basic"
-  ],
+  "@turnmove": ["spin", "turn", "wrap", "he-goes-she-goes"],
+  "@basic": ["swingout", "Charleston kicks", "turning basic"],
   "@step": [
     "gallop",
     "grapevine",
@@ -133,35 +174,24 @@ var grammar = {
     "follower's solo", // Suggested by Nick
     "hops", // Suggested by Nick
     "heel clicks", // Suggested by Nick
-    "side sway" // Suggested by Nick
+    "side sway", // Suggested by Nick
   ],
-  "@aerial": [
-    "backflip",
-    "lift"
-  ],
+  "@aerial": ["backflip", "lift"],
   "@tangothing": [
     "dip",
     "ochos",
-    "molinete" // Suggested by Nick
+    "molinete", // Suggested by Nick
   ],
-  "@pivotthing": [
-    "@pivotkind @pivotmove"
-  ],
-  "@pivotkind": [
-    "", "", "",
-    "canter"
-  ],
-  "@pivotmove": [
-    "pivots",
-    "pivaloop"
-  ],
-  "@handthing": [
-    "@handkind @handmove"
-  ],
+  "@pivotthing": ["@pivotkind @pivotmove"],
+  "@pivotkind": ["", "", "", "canter"],
+  "@pivotmove": ["pivots", "pivaloop"],
+  "@handthing": ["@handkind @handmove"],
   "@handkind": [
-    "", "", "",
+    "",
+    "",
+    "",
     "wrap-around",
-    "cloud hands" // Suggested by Nick
+    "cloud hands", // Suggested by Nick
   ],
   "@handmove": [
     "hand change",
@@ -179,14 +209,14 @@ var grammar = {
     "pretzel", // Suggested by Nick
     "windows", // Suggested by Nick
     "Zillertaler Landler arms", // Suggested by Nick
-    "shoulder catch" // Suggested by Nick
+    "shoulder catch", // Suggested by Nick
   ],
   "@latinthing": [
     "matador",
     "sombrero",
     "tornado", // Suggested by Nick
     "mixmaster", // Suggested by Nick
-    "neck roll" // Suggested by Nick
+    "neck roll", // Suggested by Nick
   ],
   "@dance": [
     "@swingdance",
@@ -197,19 +227,15 @@ var grammar = {
     "@discodance",
     "@choreodance",
     "@mixerdance",
-    "@linedance"
+    "@linedance",
   ],
-  "@swingdance": [
-    "@swingkind swing",
-    "Lindy Hop",
-    "Charleston",
-    "blues"
-  ],
+  "@swingdance": ["@swingkind swing", "Lindy Hop", "Charleston", "blues"],
   "@swingkind": [
-    "", "",
+    "",
+    "",
     "4-count",
     "6-count",
-    "west coast",// Suggested by Nick
+    "west coast", // Suggested by Nick
   ],
   "@latindance": [
     "salsa",
@@ -217,49 +243,39 @@ var grammar = {
     "tango", // Suggested by Nick
     "merengue", // Suggested by Nick
     "samba", // Suggested by Nick
-    "rumba"
+    "rumba",
   ],
-  "@waltzdance": [
-    "@waltzkind waltz"
-  ],
-  "@waltzkind": [
-    "",
-    "rotary",
-    "cross-step",
-    "Redowa"
-  ],
+  "@waltzdance": ["@waltzkind waltz"],
+  "@waltzkind": ["", "rotary", "cross-step", "Redowa"],
   "@polkadance": [
     "polka",
     "Maxixe",
     "Schottische",
     "Zwiefacher", // Didn't want to group it with waltzes.
-    "hambo" // Suggested by Nick
+    "hambo", // Suggested by Nick
   ],
   "@walkeydance": [
     "one-step", // Suggested by Nick
     "quickstep",
-    "foxtrot" // Suggested by Nick
+    "foxtrot", // Suggested by Nick
   ],
   "@discodance": [
     "hustle",
-    "club two step" // Suggested by Nick
+    "club two step", // Suggested by Nick
   ],
   "@choreodance": [
     "Bohemian National Polka",
     "Congress of Vienna",
     "Peanut Butter Jelly Time",
     "Kerry Polka Sets",
-    "Russian Mazurka Quadrille"
+    "Russian Mazurka Quadrille",
   ],
-  "@mixerdance": [
-    "Cross-Step Waltz Mixer",
-    "Polka Mixer"
-  ],
+  "@mixerdance": ["Cross-Step Waltz Mixer", "Polka Mixer"],
   "@linedance": [
     "Tokyo Polka",
     "Bus Stop",
     "Accelerating Travolta",
-    "Shim-Sham"
+    "Shim-Sham",
   ],
   "@again": [
     "Gimme Another!",
@@ -273,24 +289,27 @@ var grammar = {
     "Make stuff up!",
     "What do you do if...? Smile!",
     "Did this one prettier than the teacher!",
-    "Pick yourself up, dust yourself off, start all over again."
-  ]
+    "Pick yourself up, dust yourself off, start all over again.",
+  ],
 };
 
-var randomChoice = function(l) {
+function randomChoice(l) {
   return l[Math.floor(Math.random() * l.length)];
 }
 
-var expand = function(term) {
+function expand(term) {
   if (term[0] !== "@") {
     return term;
   }
   var subterms = randomChoice(grammar[term]).split(" ");
-  var nonEmpty = function(x){return x!=""};
-  return subterms.map(expand).filter(nonEmpty).join(" ")
+  var nonEmpty = (x) => x !== "";
+  return subterms.map(expand).filter(nonEmpty).join(" ");
 }
 
-var go = function() {
-  $("#variation").textContent = expand("@variation");
-  $("#again").textContent = expand("@again");
+function go() {
+  document.querySelector("#variation").textContent = expand("@variation");
+  document.querySelector("#again").textContent = `🔄 ${expand("@again")}`;
 }
+
+go();
+document.querySelector("#again").addEventListener("click", go);
