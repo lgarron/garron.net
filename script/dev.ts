@@ -1,4 +1,4 @@
-import { Builder } from "./ssg/Builder";
+import { Builder } from "./ssg";
 
 const builder = new Builder({
   srcRoot: "./src/garron.net/",
