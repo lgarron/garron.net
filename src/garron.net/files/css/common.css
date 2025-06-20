@@ -59,8 +59,7 @@ header {
   display: grid;
   font-variant: small-caps;
   letter-spacing: 1px;
-  font-size: 1.25em;
-  gap: 0.25em;
+  gap: 0.5em;
   background: var(--secondary-background-color);
   color: var(--secondary-accent-color);
   padding: 0.5em;
@@ -68,7 +67,7 @@ header {
 }
 
 header > img {
-  height: 3.5em;
+  height: 4.5em;
 }
 
 header ul {
@@ -76,7 +75,11 @@ header ul {
   grid-auto-flow: column;
   justify-content: center;
   list-style: none;
-  gap: 0.5em;
+  gap: 0.75em;
+}
+
+header a {
+  font-size: 1.5em;
 }
 
 header :is(a, a:visited) {
