@@ -67,9 +67,11 @@ By contrast, if you indent all the contents of `<pre>`, then all the contents wi
 </pre>
 ```
 
+Nested HTML inside Markdown may itself contain nested Markdown, and so on (arbitrarily nested).
+
 ## Non-features
 
-- There is no automatic theming.
-- There is no automatic collation/indexing/blog mnagement.
+- No automatic theming.
+- No automatic collation/indexing/blog mnagement.
 - No automatic reload in dev.
-- Source code highlighting for code snippets.
+- No source code highlighting for code snippets.
