@@ -27,7 +27,7 @@
   --secondary-strong-color: light-dark(white, black);
 }
 
-* {
+*:not(p) {
   box-sizing: border-box;
 }
 

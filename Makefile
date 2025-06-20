@@ -6,6 +6,13 @@ build: clean-build
 dev: setup
 	bun run --watch ./script/dev.ts
 
+.PHONY: test
+test: lint test-Builder
+
+.PHONY: test-Builder
+test-Builder:
+	bun test
+
 .PHONY: lint
 lint: setup
 	bun x @biomejs/biome check

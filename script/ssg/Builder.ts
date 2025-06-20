@@ -1,4 +1,11 @@
-import { cp, glob, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import {
+  cp,
+  glob,
+  mkdir,
+  readFile as nodeReadFile,
+  rm,
+  writeFile,
+} from "node:fs/promises";
 import { createServer } from "node:http";
 import { dirname, relative, resolve } from "node:path";
 import { cwd, cwd as processCwd } from "node:process";
@@ -9,7 +16,11 @@ import { default as handler } from "serve-handler";
 
 const PORT = 1337;
 
-class BuildFile {
+export const Test = {
+  renderPage: Symbol("renderPage"),
+} as const;
+
+export class BuildFile {
   constructor(
     public builder: Builder,
     public rootRelativePath: string,
@@ -28,6 +39,8 @@ class BuildFile {
   }
 
   async trimmedContents(): Promise<string> {
+    const readFile = this.builder.options.debug?.readFile ?? nodeReadFile;
+    // TODO: Optional trimming?
     return (await readFile(this.sourcePath(), "utf-8")).trim();
   }
 
@@ -50,10 +63,24 @@ class BuildFile {
 }
 
 interface BuilderOptions {
+  /** Required. */
   srcRoot: string;
+  /** Required. */
   outputDir: string;
-  debugOutput?: true;
+  /** Default: `false` */
+  debugOutput?: boolean;
+  /** Default: `true` */
   parallel?: boolean;
+  commonmarkOptions?: {
+    /** Default: `false` */
+    safe?: boolean;
+    /** Default: `"<br>"` */
+    softbreak?: string;
+  };
+  /** Default: `undefined` */
+  debug?: {
+    readFile?: (rootRelativePath: string, _: "utf-8") => Promise<string>;
+  };
 }
 
 // Debouncer, but always ensures a final call is made upon/after the last invocation.
@@ -87,19 +114,22 @@ export class Builder {
 
   constructor(public options: BuilderOptions) {}
 
+  /** Returns the number Markdown sections that were found and replaced. */
   async markdownReplace(
     elementOrFragment: HTMLElement | DocumentFragment,
-  ): Promise<void> {
+  ): Promise<{ foundAndReplaced: number }> {
+    let foundAndReplaced = 0;
     for (const templateIncludeElem of elementOrFragment.querySelectorAll(
       'pre[data-template="markdown"]',
     )) {
-      const textContent = templateIncludeElem.textContent ?? "";
-      const htmlText = this.commonmark.writer.render(
-        this.commonmark.parser.parse(textContent),
-      );
-      // TODO: recursively replace Markdown? Do we need to parse in a different order to enable this?
+      const innerHTML = templateIncludeElem.innerHTML ?? "";
+      const parsed = this.commonmark.parser.parse(innerHTML);
+      const htmlText = this.commonmark.writer.render(parsed);
+      // TODO: recursively replace Markdown inside inline HTML inside the Markdown we just parsed? Do we need to parse in a different order to enable this? Do we want to enable this?
       templateIncludeElem.replaceWith(JSDOM.fragment(htmlText));
+      foundAndReplaced++;
     }
+    return { foundAndReplaced };
   }
 
   async templateReplace(
@@ -167,12 +197,20 @@ export class Builder {
   ): Promise<JSDOM> {
     const dom = await file.sourceAsDOM();
     // Process Markdown before templating, to allow interleaving.
-    this.markdownReplace(dom.window.document.body);
+    while (
+      (await this.markdownReplace(dom.window.document.body))
+        .foundAndReplaced !== 0
+    ) {
+      /* no-op */
+    }
     await this.parallelDependingOnOptions([
       this.templateReplace(file, dom, dom.window.document.head, options),
       this.templateReplace(file, dom, dom.window.document.body, options),
     ]);
     return dom;
+  }
+  [Test.renderPage](...args: Parameters<Builder["renderPage"]>) {
+    return this.renderPage(...args);
   }
 
   private async buildFile(
@@ -277,7 +315,10 @@ export class Builder {
     // biome-ignore lint/suspicious/noAssignInExpressions: Caching pattern
     return (this.#commonmarkCached ??= {
       parser: new Parser(),
-      writer: new HtmlRenderer(),
+      writer: new HtmlRenderer({
+        safe: this.options.commonmarkOptions?.safe ?? false,
+        softbreak: this.options.commonmarkOptions?.softbreak ?? "<br>",
+      }),
     });
   }
 }

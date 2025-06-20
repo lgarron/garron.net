@@ -6,7 +6,7 @@ Lucas Garron's (new, new, new) personal website. Now with extra open-source and 
 
 ## Technology
 
-This site uses a custom static site generator, because I was dissatisfied with all others I could find. After two decades without a good low-abstraction tool, I wrote something that:
+This site uses a [custom static site generator](./SSG.md), because I was dissatisfied with all others I could find. After two decades without a good low-abstraction tool, I wrote something that:
 
 - Is explicit rather than implicit.
   - No magic. All output is generated from explicit code in the source tree.
