@@ -110,6 +110,7 @@ body[data-topic="music"] header li[data-topic="music"].hidden-by-default {
 main {
   width: 100%;
   justify-self: center;
+  margin-bottom: 2em;
 }
 
 body main,
