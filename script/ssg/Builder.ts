@@ -13,6 +13,7 @@ import { type FSWatcher, watch } from "chokidar";
 import { HtmlRenderer, Parser } from "commonmark";
 import { html_beautify } from "js-beautify";
 import { JSDOM } from "jsdom";
+import { PrintableShellCommand } from "printable-shell-command";
 import { default as handler } from "serve-handler";
 
 const PORT = 1337;
@@ -275,9 +276,15 @@ export class Builder {
     //
   }
 
-  async watch(options?: { signal?: AbortSignal }): Promise<void> {
+  async watch(options?: {
+    signal?: AbortSignal;
+    buildDoneCallback?: () => void;
+  }): Promise<void> {
     console.info("Watching…");
-    const fn = rateLimited(() => this.build({ watcher }), 1000);
+    const fn = rateLimited(async () => {
+      await this.build({ watcher });
+      options?.buildDoneCallback?.();
+    }, 1000);
 
     const cwd = resolve(processCwd(), this.options.srcRoot);
     const watcher = watch(".", {
@@ -305,13 +312,30 @@ export class Builder {
     await mkdir(this.options.outputDir, { recursive: true });
 
     const port = options?.port ?? PORT;
+    const url = new URL("http://localhost/");
+    url.port = `${port}`;
     server.listen(port, () => {
-      const url = new URL("http://localhost/");
-      url.port = `${port}`;
       console.log(`Running at ${url}`);
     });
 
-    this.watch(options);
+    const buildDoneCallback = (() => {
+      if (
+        // biome-ignore lint/complexity/useLiteralKeys: Record access
+        process.env["EXPERIMENTAL_RELOAD_CHROME_MACOS"] === "1"
+      ) {
+        const { origin } = url;
+        console.log(
+          `\nEXPERIMENTAL_RELOAD_CHROME_MACOS is set. The current Chrome tab (if it begins with \`${origin}\`) will refresh after every build.\n`,
+        );
+        return () => refreshChrome(origin);
+      }
+      return () => {};
+    })();
+
+    this.watch({
+      ...options,
+      buildDoneCallback,
+    });
     options?.signal?.addEventListener("abort", () => {
       server.close();
     });
@@ -329,4 +353,18 @@ export class Builder {
       }),
     });
   }
+}
+
+function refreshChrome(origin: string): void {
+  console.log("refreshChrome");
+  const validatedOrigin = new URL(origin).origin; // Validation.
+  new PrintableShellCommand("osascript", [
+    "-e",
+    `tell application "Google Chrome"
+              set theURL to get URL of the active tab of its first window
+              if theURL starts with ${JSON.stringify(validatedOrigin.toString())} then
+                tell the active tab of its first window to reload
+              end if
+            end tell`,
+  ]).shellOutNode();
 }
