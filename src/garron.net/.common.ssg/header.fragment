@@ -5,6 +5,6 @@
     <li data-topic="cubing"><a href="/cubing/">Cubing</a></li>
     <li data-topic="dance"><a href="/dance/">Dance</a></li>
     <li data-topic="music" class="hidden-by-default"><a href="/music/">Music</a></li>
-    <li data-topic="photography"><a href="/photography/">Photo</a></li>
+    <li data-topic="photography" class="hidden-by-default"><a href="/photography/">Photo</a></li>
   </ul>
 </header>
