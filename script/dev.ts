@@ -1,6 +1,8 @@
-import { builder } from "./common-builder";
+import { Builder } from "./ssg/Builder";
 
-const abortController = new AbortController();
-const { signal } = abortController;
+const builder = new Builder({
+  srcRoot: "./src/garron.net/",
+  outputDir: "./.cache/dev/web/garron.net/",
+});
 
-await builder.serve({ signal });
+await builder.serve();

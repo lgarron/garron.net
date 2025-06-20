@@ -1,5 +1,5 @@
 .PHONY: build
-build: clean
+build: clean-build
 	bun run ./script/build.ts
 
 .PHONY: dev
@@ -23,9 +23,13 @@ deploy: build
 	bun x @cubing/deploy
 
 .PHONY: clean
-clean:
-	rm -rf ./dist
+clean: clean-build
+	rm -rf ./.cache/ ./dist/
+
+.PHONY: clean-build
+clean-build:
+	rm -rf ./dist/web/
 
 .PHONY: reset
 reset: clean
-	rm -rf ./node_modules
+	rm -rf ./node_modules/
