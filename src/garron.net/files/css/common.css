@@ -58,16 +58,16 @@ header {
   display: grid;
   font-variant: small-caps;
   letter-spacing: 1px;
-  font-size: 24px;
-  gap: 6px;
+  font-size: 1.25em;
+  gap: 0.25em;
   background: var(--secondary-background-color);
   color: var(--secondary-accent-color);
-  padding: 12px;
+  padding: 0.5em;
   justify-items: center;
 }
 
 header > img {
-  height: 80px;
+  height: 3.5em;
 }
 
 header ul {
@@ -75,7 +75,7 @@ header ul {
   grid-auto-flow: column;
   justify-content: center;
   list-style: none;
-  gap: 12px;
+  gap: 0.5em;
 }
 
 header :is(a, a:visited) {
@@ -113,7 +113,7 @@ main {
 
 body main,
 div.default-content-width {
-  max-width: calc(min(100vw - 80px, 1024px));
+  max-width: calc(min(100vw - 4em, 1024px));
   place-self: center;
 }
 
@@ -122,7 +122,7 @@ div.default-content-width {
 }
 
 body[data-width="medium"] main {
-  max-width: calc(min(100vw - 80px, 640px));
+  max-width: calc(min(100vw - 4em, 640px));
 }
 
 body[data-width="full"] main {
