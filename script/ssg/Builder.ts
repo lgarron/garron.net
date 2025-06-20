@@ -5,7 +5,6 @@ import { cwd, cwd as processCwd } from "node:process";
 import { type FSWatcher, watch } from "chokidar";
 import { HtmlRenderer, Parser } from "commonmark";
 import { JSDOM } from "jsdom";
-import { PrintableShellCommand } from "printable-shell-command";
 import { default as handler } from "serve-handler";
 
 const PORT = 1337;
@@ -184,12 +183,6 @@ export class Builder {
     const domString = (await this.renderPage(file, options)).serialize();
     await writeFile(file.outputPath(), domString, "utf-8");
     console.log(`[Built file] ${file.rootRelativePath}`);
-    await new PrintableShellCommand("bun", [
-      ["x", "biome"],
-      "format",
-      "--write",
-      file.outputPath(),
-    ]).spawnNode().success;
   }
 
   private async buildFiles(

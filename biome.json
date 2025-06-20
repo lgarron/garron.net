@@ -3,12 +3,5 @@
   "extends": ["./node_modules/@cubing/dev-config/biome/biome.json"],
   "files": {
     "includes": ["**", "!dist", "!old", "!package.json"]
-  },
-  "html": {
-    "formatter": {
-      "enabled": true,
-      "whitespaceSensitivity": "css",
-      "lineWidth": 240
-    }
   }
 }
