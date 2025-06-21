@@ -67,7 +67,7 @@ test("Include", async () => {
 
 test("Markdown", async () => {
   const builder = testBuilder({
-    "index.html": `<pre data-template="markdown">
+    "index.html": `<pre data-transform="markdown">
 ## This is is a [Markdown](https://commonmark.org/) header.
 </pre>`,
   });
@@ -76,10 +76,10 @@ test("Markdown", async () => {
 
 test("Nested Markdown", async () => {
   const builder = testBuilder({
-    "index.html": `<pre data-template="markdown">
+    "index.html": `<pre data-transform="markdown">
 ## This is is a [Markdown](https://commonmark.org/) header.
 <div>
-  <pre data-template="markdown">
+  <pre data-transform="markdown">
   This is *Markdown nested inside HTML nested inside Markdown nested inside HTML*! 🤯
   </pre>
 </div>

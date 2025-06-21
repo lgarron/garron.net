@@ -121,14 +121,14 @@ export class Builder {
     elementOrFragment: HTMLElement | DocumentFragment,
   ): Promise<{ foundAndReplaced: number }> {
     let foundAndReplaced = 0;
-    for (const templateIncludeElem of elementOrFragment.querySelectorAll(
-      'pre[data-template="markdown"]',
+    for (const preMarkdownElem of elementOrFragment.querySelectorAll(
+      'pre[data-transform="markdown"]',
     )) {
-      const innerHTML = templateIncludeElem.innerHTML ?? "";
+      const innerHTML = preMarkdownElem.innerHTML ?? "";
       const parsed = this.commonmark.parser.parse(innerHTML);
       const htmlText = this.commonmark.writer.render(parsed);
       // TODO: recursively replace Markdown inside inline HTML inside the Markdown we just parsed? Do we need to parse in a different order to enable this? Do we want to enable this?
-      templateIncludeElem.replaceWith(JSDOM.fragment(htmlText));
+      preMarkdownElem.replaceWith(JSDOM.fragment(htmlText));
       foundAndReplaced++;
     }
     return { foundAndReplaced };

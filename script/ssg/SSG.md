@@ -65,7 +65,7 @@ Note that these includes currently:
 To render a section of Markdown, use a `<pre>` tag as follows:
 
 ```html
-<pre data-template="markdown">
+<pre data-transform="markdown">
 ## This is is a [Markdown](https://commonmark.org/) header.
 </pre>
 ```
@@ -73,7 +73,7 @@ To render a section of Markdown, use a `<pre>` tag as follows:
 Markdown may contain nested HTML (which is valid Markdown), but it will be round-tripped through the Markdown parser. Make sure that top-level HTML elements in the Markdown source are unindented. For example, this will probably do what you want:
 
 ```html
-<pre data-template="markdown">
+<pre data-transform="markdown">
 Here is some code:
 <p><code>console.log("Hello world!");</code></p>
 </pre>
@@ -82,7 +82,7 @@ Here is some code:
 By contrast, if you indent all the contents of `<pre>`, then all the contents will be interpreted as a big code block:
 
 ```html
-<pre data-template="markdown">
+<pre data-transform="markdown">
     This line and the following line's source code will be displayed together on the rendered page.
     <p><code>console.log("Hello world!");</code></p>
 </pre>
