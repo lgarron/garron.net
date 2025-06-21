@@ -127,7 +127,6 @@ export class Builder {
       const innerHTML = preMarkdownElem.innerHTML ?? "";
       const parsed = this.commonmark.parser.parse(innerHTML);
       const htmlText = this.commonmark.writer.render(parsed);
-      // TODO: recursively replace Markdown inside inline HTML inside the Markdown we just parsed? Do we need to parse in a different order to enable this? Do we want to enable this?
       preMarkdownElem.replaceWith(JSDOM.fragment(htmlText));
       foundAndReplaced++;
     }
