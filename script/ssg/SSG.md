@@ -19,6 +19,8 @@ After two decades without a good low-abstraction tool, I wrote something that:
 - Allows writing performant pages.
   - In particular, it should be easy to inline critical code (e.g. CSS that avoids a flash of unstyled content) but also to load shared code when that makes sense.
 
+Features are built on semantic HTML that can be written like normal using your editor's HTML language features.
+
 ## Usage
 
 ```js
@@ -39,7 +41,7 @@ await builder.serve();
 To include part of an HTML page with a fragment, use a `<link>` as follows:
 
 ```html
-<link rel="template" href="./relative/path/to/file.fragment">
+<link rel="include" href="./relative/path/to/file.fragment">
 ```
 
 This can be used both:

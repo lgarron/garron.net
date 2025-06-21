@@ -134,19 +134,19 @@ export class Builder {
     return { foundAndReplaced };
   }
 
-  async templateReplace(
+  async processInclude(
     file: BuildFile,
     dom: JSDOM,
     elementOrFragment: HTMLElement | DocumentFragment,
     options?: { watcher?: FSWatcher },
   ): Promise<void> {
-    for (const templateIncludeElem of elementOrFragment.querySelectorAll(
-      'link[rel="template"]',
+    for (const linkIncludeElem of elementOrFragment.querySelectorAll(
+      'link[rel="include"]',
     )) {
-      const src = templateIncludeElem.getAttribute("href");
+      const src = linkIncludeElem.getAttribute("href");
       if (!src) {
         // console.error("Missing `href`. Ignoring."); // TODO: error recovery
-        throw new Error("Missing `href` on a template link.");
+        throw new Error("Missing `href` on an `include` link.");
       }
       const included = file.relativeBuildFile(src);
 
@@ -161,7 +161,7 @@ export class Builder {
         );
       }
       const rendered = await this.renderFragment(included, dom);
-      templateIncludeElem.replaceWith(rendered);
+      linkIncludeElem.replaceWith(rendered);
     }
   }
 
@@ -189,7 +189,7 @@ export class Builder {
 
   async renderFragment(file: BuildFile, dom: JSDOM): Promise<DocumentFragment> {
     const fragment = await file.sourceAsFragment();
-    await this.templateReplace(file, dom, fragment);
+    await this.processInclude(file, dom, fragment);
     return fragment;
   }
 
@@ -198,7 +198,7 @@ export class Builder {
     options?: { watcher?: FSWatcher },
   ): Promise<JSDOM> {
     const dom = await file.sourceAsDOM();
-    // Process Markdown before templating, to allow interleaving.
+    // Process Markdown before processing includes, to allow interleaving.
     while (
       (await this.markdownReplace(dom.window.document.body))
         .foundAndReplaced !== 0
@@ -206,8 +206,8 @@ export class Builder {
       /* no-op */
     }
     await this.parallelDependingOnOptions([
-      () => this.templateReplace(file, dom, dom.window.document.head, options),
-      () => this.templateReplace(file, dom, dom.window.document.body, options),
+      () => this.processInclude(file, dom, dom.window.document.head, options),
+      () => this.processInclude(file, dom, dom.window.document.body, options),
     ]);
     return dom;
   }

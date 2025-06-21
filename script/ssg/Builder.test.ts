@@ -55,7 +55,7 @@ test("Full page", async () => {
 
 test("Include", async () => {
   const builder = testBuilder({
-    "main.html": `<link rel="template" href="./header.fragment">
+    "main.html": `<link rel="include" href="./header.fragment">
 <h1>Hi</h1>`,
     "header.fragment": `<header>
   <a href="./foo/">Foo!</a>
