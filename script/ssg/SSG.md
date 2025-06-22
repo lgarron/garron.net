@@ -90,6 +90,22 @@ By contrast, if you indent all the contents of `<pre>`, then all the contents wi
 
 Nested HTML inside Markdown may itself contain nested Markdown, and so on (arbitrarily nested).
 
+## Substitute tags
+
+Sometimes tags (e.g. `<title>`) can have special parsing semantics. To process a tag as a generic element and then change its tag name at the end, use `<substitute-tag>`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <substitute-tag data-tag="title">
+      Home | <link rel="include" href="../.common.ssg/head/site-name.fragment">
+    </substitute-tag>
+  </head>
+</html>
+```
+
 ## Non-features
 
 - No theming. (Bring your own, via CSS. Consider [`minimal-html-style`](https://github.com/lgarron/minimal-html-style))

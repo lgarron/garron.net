@@ -3,7 +3,9 @@
 
 <head>
   <link rel="include" href=".common.ssg/head.prefix.fragment">
-  <title>Lucas Garron | garron.net</title>
+  <substitute-tag data-tag="title">Lucas Garron |
+    <link rel="include" href=".common.ssg/head/site-name.fragment">
+  </substitute-tag>
   <link rel="me" href="https://mastodon.social/@lgarron">
   <link rel="stylesheet" href="./files/css/common.css">
   <link rel="include" href="./index.html.ssg/inline-style.fragment">

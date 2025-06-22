@@ -117,7 +117,7 @@ export class Builder {
   constructor(public options: BuilderOptions) {}
 
   /** Returns the number Markdown sections that were found and replaced. */
-  async markdownReplace(
+  async processMarkdown(
     elementOrFragment: HTMLElement | DocumentFragment,
   ): Promise<{ foundAndReplaced: number }> {
     let foundAndReplaced = 0;
@@ -133,7 +133,7 @@ export class Builder {
     return { foundAndReplaced };
   }
 
-  async processInclude(
+  async processIncludes(
     file: BuildFile,
     dom: JSDOM,
     elementOrFragment: HTMLElement | DocumentFragment,
@@ -164,6 +164,24 @@ export class Builder {
     }
   }
 
+  procesTagSubstitutions(
+    dom: JSDOM,
+    elementOrFragment: HTMLElement | DocumentFragment,
+  ) {
+    for (const substituteTagElem of elementOrFragment.querySelectorAll(
+      "substitute-tag",
+    )) {
+      const tag = substituteTagElem.getAttribute("data-tag");
+      if (!tag) {
+        // console.error("Missing `data-tag` on a `substitute-tag` element."); // TODO: error recovery
+        throw new Error("Missing `data-tag` on a `substitute-tag` element.");
+      }
+      const elem = dom.window.document.createElement(tag);
+      elem.append(...substituteTagElem.childNodes);
+      substituteTagElem.replaceWith(elem);
+    }
+  }
+
   // We can't use relative URL resolution like grown-ups, so we cobble together `node`'s APIs with the finesse of Duplo blocks.
   resolve(fromRootRelativePath: string, toPeerRelativePath: string): string {
     const { srcRoot } = this.options;
@@ -188,7 +206,7 @@ export class Builder {
 
   async renderFragment(file: BuildFile, dom: JSDOM): Promise<DocumentFragment> {
     const fragment = await file.sourceAsFragment();
-    await this.processInclude(file, dom, fragment);
+    await this.processIncludes(file, dom, fragment);
     return fragment;
   }
 
@@ -199,15 +217,17 @@ export class Builder {
     const dom = await file.sourceAsDOM();
     // Process Markdown before processing includes, to allow interleaving.
     while (
-      (await this.markdownReplace(dom.window.document.body))
+      (await this.processMarkdown(dom.window.document.body))
         .foundAndReplaced !== 0
     ) {
       /* no-op */
     }
     await this.parallelDependingOnOptions([
-      () => this.processInclude(file, dom, dom.window.document.head, options),
-      () => this.processInclude(file, dom, dom.window.document.body, options),
+      () => this.processIncludes(file, dom, dom.window.document.head, options),
+      () => this.processIncludes(file, dom, dom.window.document.body, options),
     ]);
+    this.procesTagSubstitutions(dom, dom.window.document.head);
+    this.procesTagSubstitutions(dom, dom.window.document.body);
     return dom;
   }
 
