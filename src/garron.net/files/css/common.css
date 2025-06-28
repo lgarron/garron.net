@@ -114,6 +114,10 @@ div.default-content-width {
   text-align: center;
 }
 
+body[data-width="auto"] main {
+  width: auto;
+}
+
 body[data-width="medium"] main {
   max-width: calc(min(100vw - 4em, 640px));
 }
