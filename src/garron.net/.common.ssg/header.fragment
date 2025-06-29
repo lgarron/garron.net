@@ -1,5 +1,5 @@
 <header>
-  <img src="/files/img/home/home.png" alt="Lucas Garron" />
+  <img src="/files/img/home/cube-heart.avif" alt="Lucas Garron" />
   <ul>
     <li data-topic="home"><a href="/">Home</a></li>
     <li data-topic="cubing"><a href="/cubing/">Cubing</a></li>
