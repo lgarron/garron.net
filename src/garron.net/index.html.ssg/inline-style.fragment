@@ -85,6 +85,11 @@
       0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
+  .home .links>a.small-image {
+    background-position: 97.5% center;
+    background-size: 90px auto;
+  }
+
   .home .links>a:visited {
     color: color-mix(in oklab, black 35%, mediumorchid);
   }
