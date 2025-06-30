@@ -1,0 +1,50 @@
+[tools]
+bun = "1.2.17"
+
+[tasks.build]
+depends = ["clean-build"]
+run = 'bun run ./script/build.ts'
+
+[tasks.dev]
+depends = ["setup"]
+run = 'bun run --watch ./script/dev.ts'
+
+[tasks.test]
+depends = ["lint", "test-Builder", "test-tsc"]
+run = ''
+
+[tasks.test-Builder]
+depends = ["setup"]
+run = 'bun test'
+
+[tasks.test-tsc]
+depends = []
+run = 'bun x tsc --noEmit --project .'
+
+[tasks.lint]
+depends = ["setup"]
+run = 'bun x @biomejs/biome check'
+
+[tasks.format]
+depends = ["setup"]
+run = 'bun x @biomejs/biome check --write'
+
+[tasks.setup]
+depends = []
+run = 'bun install --frozen-lockfile'
+
+[tasks.deploy]
+depends = ["build"]
+run = 'bun x @cubing/deploy'
+
+[tasks.clean]
+depends = ["clean-build"]
+run = 'rm -rf ./.cache/ ./dist/'
+
+[tasks.clean-build]
+depends = []
+run = 'rm -rf ./dist/web/'
+
+[tasks.reset]
+depends = ["clean"]
+run = 'rm -rf ./node_modules/'

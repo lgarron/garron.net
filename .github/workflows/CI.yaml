@@ -8,8 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
-      - run: make setup
-      - run: make lint
-      - run: make test-Builder
-      - run: make test-tsc
+      - uses: jdx/mise-action@v2
+      - run: mise run setup
+      - run: mise run lint
+      - run: mise run test-Builder
+      - run: mise run test-tsc

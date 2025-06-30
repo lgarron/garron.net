@@ -1,46 +1,43 @@
 .PHONY: build
-build: clean-build
-	bun run ./script/build.ts
+build:
+	mise run build
 
 .PHONY: dev
-dev: setup
-	bun run --watch ./script/dev.ts
+dev:
+	mise run dev
 
 .PHONY: test
-test: lint test-Builder test-tsc
+test:
+	mise run test
 
 .PHONY: test-Builder
 test-Builder:
-	bun test
+	mise run test-Builder
 
 .PHONY: test-tsc
 test-tsc:
-	bun x tsc --noEmit --project .
+	mise run test-tsc
 
 .PHONY: lint
-lint: setup
-	bun x @biomejs/biome check
+lint:
+	mise run lint
 
 .PHONY: format
-format: setup
-	bun x @biomejs/biome check --write
+format:
+	mise run format
 
 .PHONY: setup
 setup:
-	bun install --frozen-lockfile
-
-.PHOHY: deploy
-deploy: build
-	bun x @cubing/deploy
+	mise run setup
 
 .PHONY: clean
-clean: clean-build
-	rm -rf ./.cache/ ./dist/
+clean:
+	mise run clean
 
 .PHONY: clean-build
 clean-build:
-	rm -rf ./dist/web/
+	mise run clean-build
 
 .PHONY: reset
-reset: clean
-	rm -rf ./node_modules/
+reset:
+	mise run reset
