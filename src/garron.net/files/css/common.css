@@ -131,6 +131,10 @@ body[data-width="auto"] main {
   width: auto;
 }
 
+body:not(.unpadded-bottom) {
+  padding-bottom: 2.5em;
+}
+
 h1 {
   text-align: center;
   font-variant: small-caps;
