@@ -41,3 +41,7 @@ clean-build:
 .PHONY: reset
 reset:
 	mise run reset
+
+.PHONY: deploy
+deploy:
+	mise run deploy
