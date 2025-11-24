@@ -9,7 +9,7 @@
     "chokidar": "^4.0.3",
     "commonmark": "^0.31.2",
     "js-beautify": "^1.15.4",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.2.0",
     "printable-shell-command": "^1.0.0",
     "serve-handler": "^6.1.6",
     "typescript": "^5.8.3"
