@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="include" href="../../.common.ssg/head.prefix.fragment">
+  <substitute-tag data-tag="title">Dudeney Earrings ▲ ↔︎ ■ |
+    <link rel="include" href="../../.common.ssg/head/site-name.fragment">
+  </substitute-tag>
+  <meta property="og:image" content="https://garron.net/dance/tempos/social-dance-tempos.png" />
+  <link rel="stylesheet" href="../../files/css/common.css">
+</head>
+
+<body data-topic="math" data-width="medium">
+  <link rel="include" href="../../.common.ssg/header.fragment">
+  <h1 style="line-height: 1em;">Dudeney Hinged Triangle-Square Earrings</h1>
+  <img
+    alt="Three pairs of earrings shaped as triangles and squares: one lying flat with the posts facing up, one in a case, and one angled so you can see the earring post in action."
+    src="./earrings.avif" style="width: 100%;">
+  <main>
+    <br>
+    <center>
+      Can you cut a triangle into pieces and turn it into a square?
+      <center id="conversion">
+        <span class="triangle"></span> → <span class="square"></span>
+      </center>
+      <style>
+        #conversion {
+          font-size: 5rem;
+          line-height: 6rem;
+        }
+
+        #conversion .triangle {
+          display: inline-block;
+          border-bottom: 0.866em solid var(--primary-strong-color);
+          border-left: 0.5em solid transparent;
+          border-right: 0.5em solid transparent;
+          margin-right: -0.1em;
+        }
+
+        #conversion .square {
+          display: inline-block;
+          width: 0.658em;
+          height: 0.658em;
+          vertical-align: 0.05em;
+          background: var(--primary-strong-color);
+        }
+      </style>
+      Can you do it with just four pieces?
+      <br>
+      And can you arrange them so that they stay connected in the process?
+
+      <br>
+      <br>
+      <hr>
+      <br>
+
+      Henry Dudeney made this famous as <a
+        href="https://www.gutenberg.org/files/27635/27635-h/27635-h.htm#Page_49">&ldquo;The
+        Haberdasher’s Puzzle&rdquo;</a> in the early 1900s, along with a mathematically
+      perfect construction for <a href="https://www.gutenberg.org/files/27635/27635-h/27635-h.htm#Page_178">a
+        solution</a>:
+
+      <br>
+      <br>
+      <img alt="A diagram showing a triangle and a square each cut into four
+        pieces, one of which is overlapping. The diagram labels the pieces, as
+        well as several lines and circular arcs used to construct the pieces via
+        e.g. ruler and compass." class="dark-mode-invert" src="math.avif" style="max-width: 90%">
+      <style>
+        @media (prefers-color-scheme: dark) {
+          .dark-mode-invert {
+            filter: invert();
+          }
+        }
+      </style>
+      <br>
+      (Image of Dudeney’s construction, <a
+        href="https://www.gutenberg.org/files/27635/27635-h/27635-h.htm#Page_178">from
+        Project Gutenberg</a>.)
+      <br>
+      <br>
+      Even if you’ve seen the solution before, it can be quite a challenge to construct it!
+      <br>
+      <br>
+      <hr>
+      <br>
+    </center>
+    <p>If you’re on this page, chances are you’ve received some earrings from me.
+      Inspired by a <a href="https://www.thingiverse.com/thing:263152">3D
+        print-in-place model by mathgrrl</a>, when I got my own 3D printer I
+      wanted to see how neat I could possibly make them.</p>
+    <p>Turns out: fairly neat! I print them as separate pieces with removable
+      tabs to leave behind perfect hinge loops. These allow threading a piece
+      of 1.75mm filament verticall to act as the core of the hinge.</p>
+    <center>
+      <img alt="Rendering of the source geometry in OpenSCAD." src="OpenSCAD.avif" style="max-width: 90%;">
+      (Rendering of the source geometry in <a href="https://openscad.org/">OpenSCAD</a>.)
+      <br>
+      <br>
+      And I was even able to make some pretty small versions:
+    </center>
+  </main>
+  <img
+    alt="Two 10mm triangle-square models, flangking a US cent coin for scale. The models are just a tad smaller than the coin."
+    src="micro.avif" style="width: 100%">
+  <main>
+    <center>
+      (10mm triangle-square models, with a US cent coin for scale.)
+    </center>
+
+    <br>
+    <p>But I think the coolest are the earring versions, in the picture at the top of the page.</p>
+    <p>One big challenge with these models is that the tolerance of the hinge
+      loops in the 3D model is extremely tight due to slicing quirks — about
+      0.01mm (that’s right, we’re talking 1% of a millimeter). At one point I
+      had trouble printing any good versions, and it took me 60
+      experiments across half a year to get back to reasonable quality.</p>
+    <p>At this point they’re pretty robust and make for a great
+      fidget toys and fun earrings. They’re also great for sparking a bit of
+      curiosity about math. If you have some from me, enjoy your hands-on
+      experience of a classic piece of recreational math from over 100 years
+      ago!</p>
+    <p>
+      If you’d like to learn more:
+
+    <ul>
+      <li><a href="https://mathworld.wolfram.com/HaberdashersProblem.html">The Haberdasher’s Problem</a> on MathWorld
+      </li>
+      <li><a href="https://en.wikipedia.org/wiki/Hinged_dissection">Hinged dissection</a> on Wikipedia</li>
+      <li><a href="https://arxiv.org/abs/2412.03865">Dudeney’s Dissection is Optimal</a> — Erik D. Demaine, Tonan
+        Kamata, Ryuhei Uehara</li>
+    </ul>
+    </p>
+  </main>
+</body>
+
+</html>
