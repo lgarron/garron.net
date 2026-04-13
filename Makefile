@@ -1,3 +1,7 @@
+.PHONY: check
+check:
+	mise run check
+
 .PHONY: build
 build:
 	mise run build

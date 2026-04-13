@@ -9,8 +9,12 @@ run = 'bun run ./script/build.ts'
 depends = ["setup"]
 run = 'bun run --watch ./script/dev.ts'
 
+[tasks.check]
+depends = ["lint", "test", "build"]
+run = ''
+
 [tasks.test]
-depends = ["lint", "test-Builder", "test-tsc"]
+depends = ["test-Builder", "test-tsc"]
 run = ''
 
 [tasks.test-Builder]
