@@ -19,28 +19,35 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  min-height: 100%;
-  font-size: 1.1rem;
+html {
+  font-size: 1.2rem;
   line-height: 1.3em;
 }
 
+html,
 body {
-  margin: 0;
+  min-height: 100%;
+}
+
+body {
   font-family: Ubuntu, Helvetica, Tahoma, sans-serif;
   background: var(--primary-background-color);
   color: var(--primary-strong-color);
   display: grid;
+  margin: 0;
   gap: 12px;
-}
 
-body a {
-  color: var(--primary-accent-color);
-}
+  & a {
+    color: var(--primary-accent-color);
 
-body a:visited {
-  color: color-mix(in oklab, var(--primary-accent-color) 60%, mediumorchid);
+    &:visited {
+      color: color-mix(in oklab, var(--primary-accent-color) 60%, mediumorchid);
+    }
+  }
+
+  &:not(.unpadded-bottom) {
+    padding-bottom: 2.5em;
+  }
 }
 
 header {
@@ -52,23 +59,35 @@ header {
   color: var(--secondary-accent-color);
   padding: 0.5em;
   justify-items: center;
-}
 
-header > img {
-  height: 4.5em;
-}
+  & > img {
+    height: 4.5em;
+  }
 
-header ul {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: center;
-  list-style: none;
-  gap: 0.75em;
-  padding-inline-start: 0;
-}
+  & ul {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    list-style: none;
+    gap: 0.75em;
+    padding-inline-start: 0;
 
-@media (max-width: 400px) {
-  header ul {
+    margin: 0;
+
+    & a {
+      font-size: 1.5em;
+
+      &:not(:hover) {
+        text-decoration: none;
+      }
+    }
+
+    & :is(a, a:visited) {
+      color: currentColor;
+    }
+  }
+
+  @media (max-width: 400px) {
     grid-auto-flow: row;
     gap: 0.25em;
 
@@ -77,47 +96,44 @@ header ul {
     }
   }
 
-  main {
-    overflow-x: scroll;
+  body[data-topic="home"] & li[data-topic="home"],
+  body[data-topic="dance"] & li[data-topic="dance"],
+  body[data-topic="cubing"] & li[data-topic="cubing"],
+  body[data-topic="music"] & li[data-topic="music"],
+  body[data-topic="photography"] & li[data-topic="photography"] {
+    color: var(--secondary-strong-color);
   }
-}
 
-header a {
-  font-size: 1.5em;
-}
+  & .hidden-by-default {
+    display: none;
+  }
 
-header :is(a, a:visited) {
-  color: currentColor;
-}
-
-header a:not(:hover) {
-  text-decoration: none;
-}
-
-header ul {
-  margin: 0;
-}
-
-body[data-topic="home"] header li[data-topic="home"],
-body[data-topic="dance"] header li[data-topic="dance"],
-body[data-topic="cubing"] header li[data-topic="cubing"],
-body[data-topic="music"] header li[data-topic="music"],
-body[data-topic="photography"] header li[data-topic="photography"] {
-  color: var(--secondary-strong-color);
-}
-
-header .hidden-by-default {
-  display: none;
-}
-
-body[data-topic="music"] header li[data-topic="music"].hidden-by-default {
-  display: inherit;
+  body[data-topic="music"] & li[data-topic="music"].hidden-by-default {
+    display: inherit;
+  }
 }
 
 main {
   width: 100%;
   justify-self: center;
   margin-bottom: 2em;
+
+  body[data-width="auto"] & {
+    width: auto;
+  }
+
+  body[data-width="medium"] & {
+    max-width: calc(min(100vw - 4em, 640px));
+  }
+
+  body[data-width="full"] & {
+    max-width: 100%;
+    padding-top: 0px;
+  }
+
+  body[data-width="auto"] & {
+    width: auto;
+  }
 }
 
 body main,
@@ -128,27 +144,6 @@ div.default-content-width {
 
 .center-text {
   text-align: center;
-}
-
-body[data-width="auto"] main {
-  width: auto;
-}
-
-body[data-width="medium"] main {
-  max-width: calc(min(100vw - 4em, 640px));
-}
-
-body[data-width="full"] main {
-  max-width: 100%;
-  padding-top: 0px;
-}
-
-body[data-width="auto"] main {
-  width: auto;
-}
-
-body:not(.unpadded-bottom) {
-  padding-bottom: 2.5em;
 }
 
 h1 {

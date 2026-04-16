@@ -14,24 +14,24 @@
   table {
     border-collapse: collapse;
     margin: 1em;
-  }
 
-  table td {
-    padding: 3px 10px;
-    text-align: center;
-    white-space: nowrap;
-  }
+    & td {
+      padding: 3px 10px;
+      text-align: center;
+      white-space: nowrap;
 
-  table td:first-child {
-    text-align: right;
-  }
+      &:first-child {
+        text-align: right;
+      }
+    }
 
-  thead {
-    font-weight: bold;
-  }
+    & thead {
+      font-weight: bold;
+    }
 
-  tbody {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    & tbody {
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
   }
 
   .responsive {

@@ -49,56 +49,57 @@
     margin: auto;
     max-width: 1200px;
     text-align: center;
-  }
 
-  .home .links>a {
-    display: inline-block;
-    display: inline-flex;
-    vertical-align: middle;
-    box-sizing: content-box;
+    &>a {
+      display: inline-block;
+      display: inline-flex;
+      vertical-align: middle;
+      box-sizing: content-box;
 
-    height: 80px;
-    width: 180px;
-    margin: 12px;
-    padding: 8px 24px;
+      height: 80px;
+      width: 180px;
+      margin: 12px;
+      padding: 8px 24px;
 
-    /*border-radius: 8px;*/
-    /*box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);*/
+      /*border-radius: 8px;*/
+      /*box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);*/
 
-    background-color: rgba(255, 255, 255, 0.5);
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 100px auto;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: 100px auto;
 
-    border-radius: 0.75em;
+      border-radius: 0.75em;
 
-    color: black;
-    text-align: left;
-    text-decoration: none;
-    align-items: center;
-    line-height: 1.1em;
+      color: black;
+      text-align: left;
+      text-decoration: none;
+      align-items: center;
+      line-height: 1.1em;
 
-    transition: all 250ms;
+      transition: all 250ms;
 
-    box-shadow:
-      0 3px 6px rgba(0, 0, 0, 0.16),
-      0 3px 6px rgba(0, 0, 0, 0.23);
-  }
+      box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
 
-  .home .links>a.small-image {
-    background-position: 97.5% center;
-    background-size: 90px auto;
-  }
+      &>.small-image {
+        background-position: 97.5% center;
+        background-size: 90px auto;
+      }
 
-  .home .links>a:visited {
-    color: color-mix(in oklab, black 35%, mediumorchid);
-  }
+      &>:visited {
+        color: color-mix(in oklab, black 35%, mediumorchid);
+      }
 
-  .home .links>a:is(:hover, :focus) {
-    background-color: white;
-    box-shadow:
-      0 19px 38px rgba(0, 0, 0, 0.3),
-      0 15px 12px rgba(0, 0, 0, 0.22);
-    transform: translateY(-5px);
+      &>:is(:hover, :focus) {
+        background-color: white;
+        box-shadow:
+          0 19px 38px rgba(0, 0, 0, 0.3),
+          0 15px 12px rgba(0, 0, 0, 0.22);
+        transform: translateY(-5px);
+      }
+
+    }
   }
 </style>
