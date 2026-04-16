@@ -64,6 +64,22 @@ header ul {
   justify-content: center;
   list-style: none;
   gap: 0.75em;
+  padding-inline-start: 0;
+}
+
+@media (max-width: 400px) {
+  header ul {
+    grid-auto-flow: row;
+    gap: 0.25em;
+
+    & li {
+      text-align: center;
+    }
+  }
+
+  main {
+    overflow-x: scroll;
+  }
 }
 
 header a {
