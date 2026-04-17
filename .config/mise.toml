@@ -3,35 +3,29 @@ bun = "1.2.17"
 
 [tasks.build]
 depends = ["clean-build"]
-run = 'bun run ./script/build.ts'
+run = 'bun run -- ./script/build.ts'
 
 [tasks.dev]
 depends = ["setup"]
-run = 'bun run --watch ./script/dev.ts'
+run = 'bun run --watch -- ./script/dev.ts'
 
 [tasks.check]
-depends = ["lint", "test", "build"]
-run = ''
-
-[tasks.test]
-depends = ["test-Builder", "test-tsc"]
-run = ''
-
-[tasks.test-Builder]
-depends = ["setup"]
-run = 'bun test'
-
-[tasks.test-tsc]
-depends = []
-run = 'bun x tsc --noEmit --project .'
+depends = ["lint", "build"]
 
 [tasks.lint]
+depends = ["lint-biome", "lint-tsc"]
+
+[tasks.lint-biome]
 depends = ["setup"]
-run = 'bun x @biomejs/biome check'
+run = 'bun x -- bun-dx --package @biomejs/biome biome -- check'
+
+[tasks.lint-tsc]
+depends = []
+run = 'bun x -- bun-dx --package @typescript/native-preview tsgo -- --noEmit --project .'
 
 [tasks.format]
 depends = ["setup"]
-run = 'bun x @biomejs/biome check --write'
+run = 'bun x -- bun-dx --package @biomejs/biome biome -- check --write'
 
 [tasks.setup]
 depends = []
@@ -39,16 +33,16 @@ run = 'bun install --frozen-lockfile'
 
 [tasks.deploy]
 depends = ["build"]
-run = 'bun x @cubing/deploy'
+run = 'bun x -- bun-dx --package @cubing/deploy deploy --'
 
 [tasks.clean]
+run = 'bun -e "process.argv.slice(1).map(p => process.getBuiltinModule(\"node:fs\").rmSync(p, {recursive: true, force: true, maxRetries: 5}))" -- ./.cache/ ./dist/'
+
 depends = ["clean-build"]
-run = 'rm -rf ./.cache/ ./dist/'
-
 [tasks.clean-build]
-depends = []
-run = 'rm -rf ./dist/web/'
+run = 'bun -e "process.argv.slice(1).map(p => process.getBuiltinModule(\"node:fs\").rmSync(p, {recursive: true, force: true, maxRetries: 5}))" -- ./dist/web/'
 
+depends = []
 [tasks.reset]
+run = 'bun -e "process.argv.slice(1).map(p => process.getBuiltinModule(\"node:fs\").rmSync(p, {recursive: true, force: true, maxRetries: 5}))" -- ./node_modules/'
 depends = ["clean"]
-run = 'rm -rf ./node_modules/'
