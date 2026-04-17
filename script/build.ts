@@ -1,9 +1,13 @@
 import { Builder } from "linkrel-ssg";
 
+export const SRC_ROOT = "./src/garron.net/";
+
 const builder = new Builder({
-  srcRoot: "./src/garron.net/",
+  srcRoot: SRC_ROOT,
   outputDir: "./dist/web/garron.net/",
   debugOutput: true,
 });
 
-await builder.build();
+if (import.meta.main) {
+  await builder.build();
+}
