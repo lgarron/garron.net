@@ -1,0 +1,1 @@
+RedirectMatch 307 ^/dance/choreo/?$ /dance/
