@@ -18,6 +18,7 @@ ExpiresActive off
 Header always set Cache-Control "max-age=300; must-revalidate"
 
 RedirectMatch 308 ^/dudeney/?$ /3d-printing/dudeney-earrings/
+RedirectMatch 308 ^/app/cross-step/?$ /dance/choreo/cross-step-waltz-variations/
 
 # Compression
 # Per https://kinsta.com/knowledgebase/enable-gzip-compression/
