@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@cubing/deploy/config-schema.package.json",
   "devDependencies": {
     "@biomejs/biome": "v2.0.5",
-    "@cubing/deploy": "^0.4.6",
+    "@cubing/deploy": ">=0.4.12",
     "@cubing/dev-config": "^0.3.6",
     "@types/commonmark": "^0.27.9",
     "@types/js-beautify": "^1.14.3",
