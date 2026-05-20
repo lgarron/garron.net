@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="include" href="../../.common.ssg/head.prefix.fragment">
+  <substitute-tag data-tag="title">AI stance |
+    <link rel="include" href="../../.common.ssg/head/site-name.fragment">
+  </substitute-tag>
+  <link rel="stylesheet" href="../../files/css/common.css">
+</head>
+
+<body data-width="medium" data-topic="code">
+  <link rel="include" href="../../.common.ssg/header.fragment">
+  <main>
+    <style>
+      h1,
+      h2,
+      h3 {
+        text-decoration: underline;
+      }
+    </style>
+    <pre data-transform="markdown">
+
+# My stance on AI coding
+
+<center>
+  Lucas Garron<br>
+  May 19, 2026
+</center>
+<br>
+
+<hr>
+
+I take responsibility for every line of code (and prose) that I write.
+
+For the time being:
+
+- I will not use LLMs or similar AI tools for coding, writing text, or any other part of software maintenance.
+- I will not accept any such contributions to my projects.
+
+Perhaps this will change over time. As much as I do not want to use AI tools for coding at this time, they are clearly &rdquo;the (eventual) future&ldquo; of coding and I may find use cases where the benefits strongly outweigh my concerns.
+
+But for the time being, __*I would much rather that a piece of code didn't exist, rather than it exist because of AI*__.
+
+## Why?
+
+It is probably easy to start AI coding, but it does not seem like it would be easy to reverse such a decision. Unless the technical, moral, social, legal, responsibility, quality, stability, centralization, financial, and ecological concerns develop remarkable mitigations overnight, the only option I feel comfortable with is to opt out of AI coding entirely.
+
+- **Technical**: AI code needs to be more reliable for me than code I would write myself. I don't see evidence that it would be.
+- **Moral**: Many AI models are trained or used on codebases without consent, and can make life worse for people who are forced to contend with the effects of AI interacting with their projects. Not to mention they'd rather [destroy source material](https://arstechnica.com/ai/2025/06/anthropic-destroyed-millions-of-print-books-to-build-its-ai-models/) for training if they think it will help then get there faster, and will try to hide it as a secret cost of doing business.
+- **Social**: Previously, a thorough comment or pull request signaled care and investment in a project. Now, it is becoming increasingly hard to distinguish from slop that doesn't indicate care. (Also see [contributor poker](https://kristoff.it/blog/contributor-poker-and-ai/) for a utilitarian viewpoint for project maintainability that is being broken by AI.)
+- **Legal**: AI code cannot be copyrighted in the US, and it is unclear at best how safe it is to incorporate into copyleft codebases. In addition, the ability to launder code has well outrun the ability for code authors to prevent their code from being laundered. I consider this to be an unmitigated evil.
+- **Responsibility**: Once, a long time ago, I avoided getting into machine learning because I wanted to avoid doing AI until I was sure I could do it responsibly. That day never came, and at this rate it seems that it never will. Instead, it seems that people who try to work on responsible AI <a href="https://en.wikipedia.org/wiki/Timnit_Gebru#2018%E2%80%932020:_Artificial_intelligence_ethics_at_Google">get fired</a>.
+- **Quality**: AI coding tools themselves seem to have significantly bad practices and security issues. [They are cobbled together](https://neuromatch.social/@jonny/116334647429831137). They [violate `robots.txt`](https://drewdevault.com/blog/Stop-externalizing-your-costs-on-me/). They [fingerprint](https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/). They ship extensions with [über-XSS](https://layerxsecurity.com/blog/a-flaw-in-claudes-browser-extension-allows-any-extension-to-hijack-it/). These violations are not accidents, because companies consider this the cost of doing business and will not slow down to be more responsible. (Also see [If AI coding is so good, why isn't your code good?](#If-AI-coding-is-so-good-why-isnt-your-code-good) below.)
+- **Stability**: State-of-the-art models are constantly being updated and deprecated. Even if a process using AI works well today, there is no guarantee against subtle (or catastrophic) failure in the future.
+- **Centralization**: Big data models are expensive to create and maintain, and even the somewhat-open ones seem to become less open over time. There is great incentive to lock users into centralized platforms that can be changed at any time, instead of empowering them in a way that is not reliant on centralized services.
+- **Financial**: Access to top-tier coding agents can cost hundreds of dollars per month. Life is good for people who can afford this while VCs are pouring money into this, but [we all know where the hype cycle leads](**https**://en.wikipedia.org/wiki/Enshittification).
+- **Ecological**: Data centers use water and power, and produce heat. Companies usually have the leverage to build these at the expense of those who live near the data centers, unless those people [band together in time](https://tucson.com/opinion/column/article_1768828f-28f2-443f-a18a-c20cd317e6c8.html). There are those who argue that the costs are reasonable compared to the benefits, but even if that's true in the short term I have zero faith that data center builders and maintainers will do nearly enough to address the ecological impact. Our planet needs a chance of having a future.
+
+I'm not alone in these concerns. Many projects face similar concerns, and have limited or banned AI contributions. [Wikipedia has banned AI-generated content](https://en.wikipedia.org/wiki/Wikipedia:Writing_articles_with_large_language_models). [The EU won't use it](https://www.politico.eu/article/brussels-eu-ban-deepfakes-ai-generation-official-messages/). [arXiv has had to enact strict penalties](https://www.theverge.com/science/931766/arxiv-ai-slop-ban-researchers).
+
+### Brainrot
+
+Using AI tools [rots your brain](https://arxiv.org/pdf/2604.04721) and [corrupts your intentions with its own](https://sites.google.com/view/llmwritingdistortion/home). No thanks.
+
+### Correctness and the security mindset
+
+My background is in security via mathematics and cryptography, where the bane of all implementers is code that looks plausibly safe but contains subtle bugs that break the system. For lower-level code, this is often summed up as [&ldquo;don't roll your own crypto&rdquo;](https://securitycryptographywhatever.com/2021/07/31/the-great-roll-your-own-crypto-debate-with-filippo-valsorda/), but of course… *someone* has to implement crypto. This is hard to do. If you're doing it right, maintaining your own crypto implementation is a lot of work: you have to comb through the code with a full understanding of what it's supposed to do, and exercise edge cases that can require careful thought to construct. That is to say, the hard part isn't producing *any old code* that seems to do the right thing, but code that you can trust.
+
+(Note: I am aware that AI has recently become particularly powerful a *breaking* the security of codebases. I am not a vulnerability researcher and do not currently maintain any high-power projects, so this [doesn't solve my problems](#ai-doesnt-solve-my-problems). It also comes after a flood of slop that has made projects have to [close their vulnerability reward programs](https://daniel.haxx.se/blog/2026/01/26/the-end-of-the-curl-bug-bounty/).)
+
+The same security mindset applies to correctness in many other ways: you may not have a formal [threat model](https://en.wikipedia.org/wiki/Threat_model), but programs accept inputs under certain circumstances and should be doing certain things *correctly* with that input. Even common industry practices do not live up to that standard, instead allowing inocuous inputs to cause disastrous results — after almost two decades of experience I am still terrified of using or touching `bash` shell code, and I think you should be too.
+
+When reviewing AI code, my default assumption is that I have to treat it antagonistically. The code is written by an agent that knows how to emulate many of the hallmarks of plausibly correct code, but it is extrapolating from flawed codebases. This is fertile breeeding ground for correctness bugs. This can supposedly be addressed by adding certain guadrail instructions and asking AI agents to self-critique their code, but I have not been impressed with these safeguards when I see others describe them. It seems to be a fundamental limitation that current AI models are not *strictly more careful* than experienced humans are — that they do not &ldquo;know&rdquo; what they are doing to the same extent. (In *theory* AI tools could actually raise the floor to prevent common issues, but in practice I still put much more trust into linters like [Biome](https://biomejs.dev/) and [Clippy](https://doc.rust-lang.org/clippy/) with curated heuristics and vetted safe fixes.)
+
+This leads to a tradeoff where I would have to treat AI contributions with a lot of scrutiny when I could have spent a significant amount of that time understanding the problem more deeply and implementing a solution myself.
+
+Speaking of which:
+
+<h3 id="ai-doesnt-solve-my-problems">AI doesn't solve my problems</h3>
+
+There are some situations where "If it looks like it works, it's probably good" applies, such as prototypes, toys, and idea generation.
+
+However, I have a lot of experience coding and I've found that there is a lot of benefit to holding my prototypes and toys to the same disciplined standard as my other code.
+
+- Everything is tracked with version control.
+- Everything uses a proper ecosystem with dependency management.
+- Everything uses the type system and is and linted.
+- Everything runs through CI.
+- APIs and library entry points are explicit instead of implicit.
+- Published code follows relevant specified standards wherever possible.
+- Native idioms are preferred over framework abstractions.
+- Hacks are kept to the minimum amount necessary, isolated, and documented.
+- Web apps should use JS only when absolutely necessary, and use progressive enhancement when possible.
+- …
+
+It can be a pain to navigate the "design space" or boilerplate for a project if you're starting from scratch. If you don't know how to do that, AI can certainly "make you a thing".
+
+But I don't need that. I know how to make a thing from scratch — quickly and reliably. I use personal [libraries](https://github.com/cubing/dev-config), [conventions](https://github.com/lgarron/Makefile-convention), and [tools](https://github.com/lgarron/repo) that reduce the overhead for me. And if I'm looking to add a feature to a codebase, I already have a strong sense of what my options and tradeoffs are.
+
+- I know idioms and pitfalls of my major languages.
+- I have a lot of experience designing codebases and ecosystems.
+- I studied algorithms in my master's degree, so I know how to avoid pathological runtimes and how to tackle computational challenges.
+- I go out of my way to avoid technical debt under all circumstances, so I generally don't make it harder to work on a codebase over time.
+
+If I find it difficult to figure out how to implement something reasonably, then I usually find that either:
+
+- There are social challenges to adopting any specific solutions.
+- I have something to learn or design.
+- There is a gap in the ecosystem which I should help fill myself (e.g. the [clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API), [`@github/webauthn-json`](https://github.com/github/webauthn-json), [`printable-shell-command`](https://codeberg.org/lgarron/printable-shell-command), [`path-class`](https://codeberg.org/lgarron/path-class)).
+- There is something bigger at play that I should not paper over.
+
+I understand that some people do not have as much luxury of choice — perhaps they are pressured to work on an iOS app for work even though they do not know Objective-C or Swift, or to create a web app even though they do not know HTML, CSS, and JavaScript. And perhaps they're getting paid for "results" over code quality. Then maybe AI is the fastest way to solve their problems. But those are not the problems that I personally have.
+
+I also understand that others would say that using AI tools can go &ldquo;hand-in-hand&rdquo; with my practices. For example, using annotations / runtimes / compilers that enforce certain correctness guarantees (e.g. TypeScript types or Rust's borrow checker) can limit what mistakes AI can introduce. But that's an orthogonal concern. The point still stands that AI doesn't solve the problems I actually have, and refining practices is an ongoing task.
+
+As for generating ideas: I have lists of ideas that could keep me occupied for decades. I do not feel any desire to pawn off these problems to AI.
+
+I certainly don't need to have more code for the sake of having more code. [Code is a liability](https://pluralistic.net/2026/01/06/1000x-liability/), and [more code is not better](https://www.folklore.org/Negative_2000_Lines_Of_Code.html).
+
+<h2 id="If-AI-coding-is-so-good-why-isnt-your-code-good">
+  If AI coding is so good, why isn't your code good?
+</h2>
+
+It feels like AI is a tool that other people use to [turn their problems into my problems](https://en.wikipedia.org/wiki/Externality).
+
+This manifests in lots of ways — for example, many of us have seen a support chatbot that insists on offering us useless answers when know we need to talk to a human to resolve an issue. But I've seen it take a more specific form in code projects that used to be human-maintained and then adopted AI.
+
+An AI tool will implement an entire feature with a bit of human review, or even with almost no review. The AI sometimes makes assumptions about the codebase an introduces a regression. And since no human is required to be in the loop for testing (e.g. building and running the code in their own environment), the regression can often only be caught if it happens to cause tests to fail — which won't really happen, since the AI is generally expected to keep revising until tests pass. In a sense, the AI contributions are [fuzzing](https://en.wikipedia.org/wiki/Fuzzing) for what regressions they can get away with introducing.
+
+So then when the change hits a stable release with a security/correctness issue, I have to carefully identify and document an issue with the project. If I can understand the codebase well enough, I can hopefully send a pull request. But often the project will *also* try to assign a bot to create a fix in a pull request. So then:
+
+- If I try to advocate for my own pull request, it's sandwiched between automated stuff. (As mentioned above, sending a well-thought-out pull request no longer signals "I care about fixing this" the way it used to.)
+- Or: the AI pull request languishes. I comment "I would like to see this pull request merged". But the pull request is still from a bot. It doesn't stand out as important.
+
+In the best case, the fix often tends to be available on the order of weeks. But other regressions take months to years to get fixed, and pile up. Projects that used to pride themselves on prioritizing issues with upvotes seem to wilfully disregard them in favor of things that can be automated. Instead of being able to try to appeal to code owners and reviewers I have to figure out what to do with impotent rage because a bot broke something and it's no one's job to fix it. If I'm lucky, I can switch to another project and hope they won't go down the same path.
+
+People argue that these kinds of short-term issues can be fixed by having bots fix up the codebase over time. If that's the case, I'm not seeing it.
+
+I have no interest for getting into the habit of doing that to people who use my code.
+
+## Exceptions
+
+I try to take a hardline stance, but I don't think that will always work out. In particular, if I never ever try to use AI tools then I may fail to recognize when they actually work well enough to my standards.
+
+If there are situations that warrant exceptions in the meantime:
+
+- The exact use must be disclosed in the body of the relevant commit / comment / text post.
+- Any commit containing contributions from from an AI tool must contain a [`Co-authored-by`](https://dev.to/cassidoo/co-authoring-git-commits-3gin) attribution.
+- The contribution must be made via a human author, and this author must take full responsibility for the contribution as if they had written it entirely themselves.
+- The decision to publish code (e.g. to a package registry) must be made and invoked by a human.
+
+I intend to hold myself to this, and expect the same of contributors to my projects.
+
+## Code as craft
+
+It seems a foregone conclusion that those with power would like to see coding as a fungible, automatable skill that serves their goals. They're investing a lot of money into making sure that it will be. As a side effect, it may also serve the goals of other individual coders and open-source projects well enough.
+
+So I expect that my style of coding will turn into an antiquated craft, like woodworking.
+
+But woodworkers still exist.
+
+I'm okay with that. Even if others are out there generating code like nobody's business, I can find joy and pride in making things that I trust by hand. They can be just as well-made and useful as before.
+
+</pre>
+
+  </main>
+</body>
+
+</html>
