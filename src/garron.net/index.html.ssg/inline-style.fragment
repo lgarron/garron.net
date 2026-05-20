@@ -92,7 +92,7 @@
         color: color-mix(in oklab, black 35%, mediumorchid);
       }
 
-      &>:is(:hover, :focus) {
+      &:is(:hover, :focus) {
         background-color: white;
         box-shadow:
           0 19px 38px rgba(0, 0, 0, 0.3),
