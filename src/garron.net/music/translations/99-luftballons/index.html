@@ -16,6 +16,10 @@
     <div id="content" style="text-align: center;">
       <br>
       <style>
+        body {
+          --dim-color: light-dark(color-mix(in oklab, currentColor 35%, transparent), color-mix(in oklab, currentColor 50%, transparent));
+        }
+
         h2 {
           text-align: center;
           font-size: 1.1em;
@@ -48,7 +52,7 @@
             span {
               position: absolute;
               transform: translateX(-100%);
-              opacity: 50%;
+              color: var(--dim-color);
             }
           }
         }
@@ -59,7 +63,9 @@
           <p class="ballons">🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈</p>
           <p class="center">English translation of<br><a href="https://www.youtube.com/watch?v=Fpu5a0Bl8eY">the song
               by Nena</a></p>
-          <p class="center">Lucas Garron<br>November 22, 2025</p>
+          <p class="center">Lucas Garron<br>November 22, 2025<br><span style="color: var(--dim-color)">(Last minor
+              revision: May 20,
+              2026)</span></p>
           <p class="ballons">🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈</p>
           <p class="lyrics">If you've got some time for me
             <br><span class="underlap"><span>Then&nbsp;</span></span>I'll sing you a melody
@@ -75,8 +81,8 @@
             <br><span class="underlap"><span>As&nbsp;</span></span>they flew up into the sun
             <br>Seemed like UFOs from space
             <br><span class="underlap"><span>So&nbsp;</span></span>generals began the chase
-            <br><span class="underlap"><span>Sent&nbsp;</span></span>fighter squadrons in the air
-            <br><span class="underlap"><span>To&nbsp;</span></span>sound alarms for when and where
+            <br><span class="underlap"><span>Sent&nbsp;</span></span>fighter squadrons right behind
+            <br><span class="underlap"><span>To&nbsp;</span></span>go alert them what they find
             <br><span class="underlap"><span>But&nbsp;</span></span>out there flying all long
             <br><span class="underlap"><span>Were&nbsp;</span></span><em>neundneunzig Luftballons</em>
           </p>
