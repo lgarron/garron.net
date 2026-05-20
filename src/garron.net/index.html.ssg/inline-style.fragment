@@ -16,13 +16,16 @@
   }
 
   .info {
-    font-family: monospace;
     line-height: 200%;
     display: inline-block;
     flex-direction: column;
     margin: auto;
     white-space: nowrap;
     text-align: left;
+
+    & .monospace {
+      font-family: monospace;
+    }
   }
 
   .compact {
