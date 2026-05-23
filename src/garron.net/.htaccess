@@ -17,6 +17,11 @@ RewriteRule ^(.*)$ https://garron.net%{REQUEST_URI} [R=302,L]
 RedirectMatch 308 ^/dudeney/?$ /3d-printing/dudeney-earrings/
 RedirectMatch 308 ^/app/cross-step/?$ /dance/choreo/cross-step-waltz-variations/
 
+# Rewrite a URL that escaped containment.
+# Note that we can't use `RedirectMatch`, because double slashes are resolved single slashes before reaching it.
+RewriteCond %{THE_REQUEST} ^GET\s[^?]*/dance//choreo/dawn-mazurka/\s
+RewriteRule (.*) /dance/choreo/dawn-mazurka/ [R=301,END]
+
 # Compression
 # Per https://kinsta.com/knowledgebase/enable-gzip-compression/
 <IfModule mod_deflate.c>
