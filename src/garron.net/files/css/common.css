@@ -167,3 +167,10 @@ hr {
   border-left: none;
   border-right: none;
 }
+
+:root {
+  --dim-color: light-dark(
+    color-mix(in oklab, currentColor 35%, transparent),
+    color-mix(in oklab, currentColor 50%, transparent)
+  );
+}
