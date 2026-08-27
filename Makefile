@@ -26,6 +26,14 @@ test-tsc:
 lint:
 	mise run lint
 
+.PHONY: lint-biome
+lint-biome:
+	mise run lint-biome
+
+.PHONY: lint-tsc
+lint-tsc:
+	mise run lint-tsc
+
 .PHONY: format
 format:
 	mise run format

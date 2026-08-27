@@ -20,7 +20,7 @@ depends = ["setup"]
 run = 'bun x -- bun-dx --package @biomejs/biome biome -- check'
 
 [tasks.lint-tsc]
-depends = []
+depends = ["setup"]
 run = 'bun x -- bun-dx --package typescript tsc -- --noEmit --project .'
 
 [tasks.format]
