@@ -17,15 +17,15 @@ depends = ["lint-biome", "lint-tsc"]
 
 [tasks.lint-biome]
 depends = ["setup"]
-run = 'bun x -- bun-dx --package @biomejs/biome biome -- check'
+run = 'bun x --no-install -- biome check'
 
 [tasks.lint-tsc]
 depends = ["setup"]
-run = 'bun x -- bun-dx --package typescript tsc -- --noEmit --project .'
+run = 'bun x --no-install -- tsc --noEmit --project .'
 
 [tasks.format]
 depends = ["setup"]
-run = 'bun x -- bun-dx --package @biomejs/biome biome -- check --write'
+run = 'bun x --no-install -- biome check --write'
 
 [tasks.setup]
 depends = []
@@ -33,7 +33,7 @@ run = 'bun install --frozen-lockfile'
 
 [tasks.deploy]
 depends = ["build"]
-run = 'bun x -- bun-dx --package @cubing/deploy deploy --'
+run = 'bun x --no-install -- deploy'
 
 [tasks.clean]
 run = 'bun -e "process.argv.slice(1).map(p => process.getBuiltinModule(\"node:fs\").rmSync(p, {recursive: true, force: true, maxRetries: 5}))" -- ./.cache/ ./dist/'

@@ -8,7 +8,6 @@
     "@types/js-beautify": "^1.14.3",
     "@types/jsdom": "^30.0.0",
     "@types/serve-handler": "^6.1.4",
-    "bun-dx": "^0.1.4",
     "chokidar": "^4.0.3",
     "commonmark": "^0.31.2",
     "js-beautify": "^1.15.4",
