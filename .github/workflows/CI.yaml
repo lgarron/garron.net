@@ -1,6 +1,6 @@
 name: CI
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
   check:
@@ -8,8 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
-      - run: mise run setup
-      - run: mise run lint-biome
-      - run: mise run lint-tsc
-      - run: mise run build
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - run: make setup
+      - run: make lint-biome
+      - run: make lint-tsc
+      - run: make build

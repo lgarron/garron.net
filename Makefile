@@ -1,59 +1,48 @@
 .PHONY: check
-check:
-	mise run check
+check: lint build
 
 .PHONY: build
-build:
-	mise run build
+build: clean-build setup
+	bun run -- ./script/build.ts
 
 .PHONY: dev
-dev:
-	mise run dev
-
-.PHONY: test
-test:
-	mise run test
-
-.PHONY: test-Builder
-test-Builder:
-	mise run test-Builder
-
-.PHONY: test-tsc
-test-tsc:
-	mise run test-tsc
+dev: setup
+	bun run --watch -- ./script/dev.ts
 
 .PHONY: lint
-lint:
-	mise run lint
+lint: lint-biome lint-tsc
 
 .PHONY: lint-biome
-lint-biome:
-	mise run lint-biome
+lint-biome: setup
+	bun x --no-install -- biome check
 
 .PHONY: lint-tsc
-lint-tsc:
-	mise run lint-tsc
+lint-tsc: setup
+	bun x --no-install -- tsc --noEmit --project .
 
 .PHONY: format
-format:
-	mise run format
+format: setup
+	bun x --no-install -- biome check --write
 
 .PHONY: setup
 setup:
-	mise run setup
+	bun install --frozen-lockfile
+
+RM_RF = bun -e 'process.argv.slice(1).map(p => process.getBuiltinModule("node:fs").rmSync(p, {recursive: true, force: true, maxRetries: 5}))' --
 
 .PHONY: clean
 clean:
-	mise run clean
+	${RM_RF} -- ./.cache/ ./dist/
+
+.PHONY: reset
+reset: clean
+	${RM_RF} -- ./node_modules/
 
 .PHONY: clean-build
 clean-build:
-	mise run clean-build
+	${RM_RF} -- ./dist/web/
 
-.PHONY: reset
-reset:
-	mise run reset
 
 .PHONY: deploy
-deploy:
-	mise run deploy
+deploy: build
+	bun x --no-install -- deploy
